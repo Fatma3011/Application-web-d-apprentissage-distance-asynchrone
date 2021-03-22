@@ -3,6 +3,7 @@ import Swiper from 'swiper'
 import "swiper/swiper-bundle.css"
 
 function Aa() {
+    {/* TESSSSSSST FOR SWIPPER */}
     var Swipes = new Swiper('.swiper-container', {
         loop: true,
         navigation: {
