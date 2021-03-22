@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SwiperPart from './components/studentComponents/SwiperPart';
 import './index.css';
+import SignInPage from './pages/SignInPage';
 
-import Home from './pages/Home'
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <>
-   <Home/>
+   <SignInPage />
    </>
   </React.StrictMode>,
   document.getElementById('root')
