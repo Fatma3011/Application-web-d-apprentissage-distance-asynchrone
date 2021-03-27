@@ -2,7 +2,7 @@ import React from 'react'
 
 function Courses() {
     return (
-<>
+
  
   <main id="main">
     <section id="portfolio" className="portfolio">
@@ -153,10 +153,6 @@ function Courses() {
       </div>
     </section>{/* End Portfolio Section */}
   </main>
-
-
-</>
-
     )
 }
 

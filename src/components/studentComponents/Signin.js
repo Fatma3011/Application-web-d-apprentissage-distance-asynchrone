@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Signin() {
   return (
@@ -16,13 +17,32 @@ function Signin() {
               <input type="text" name placeholder="Username" />
               <input type="password" name placeholder="Password" />
               <a className="forgot text-muted" href="#">
+              <NavLink
+                      className="nav-link"
+                      to="/forgotpassword"
+                      activeStyle={{
+                        fontWeight: "bold",
+                        color: "white"}}
+                    >
                 Forgot password?
+                    </NavLink>
               </a>
               {/* <input type="submit" name defaultValue="Login" href="#" /> */}
               <button type="submit" className="">
                 Sign in
               </button>
-              <div className="col-md-12">
+              <a className="forgot text-muted" href="#">
+              <NavLink
+                      className="nav-link"
+                      to="/signup"
+                      activeStyle={{
+                        fontWeight: "bold",
+                        color: "white"}}
+                    >
+                Sign up ?
+                    </NavLink>
+              </a>
+              {/* <div className="col-md-12">
                 <ul className="social-network social-circle">
                   <li>
                     <a href="#" className="icoFacebook" title="Facebook">
@@ -40,7 +60,7 @@ function Signin() {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>

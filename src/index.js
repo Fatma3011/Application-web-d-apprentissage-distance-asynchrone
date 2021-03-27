@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SwiperPart from './components/studentComponents/SwiperPart';
 import './index.css';
-import SignInPage from './pages/SignInPage';
-
+import Routes from './routes';
 
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <>
-   <SignInPage />
-   </>
+    <Routes/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -9,10 +9,20 @@ function SwiperPart() {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    pagination: {
+    
+    breakpoints: {
+      1023: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      grabCursor: true,
+      parallax: true,
+      pagination: {
         el: '.swiper-pagination',
-    },
-  });
+        clickable: true,
+      },
+    }
+});
     return (
 <div className="swiper-container">
   {/* swiper slides */}

@@ -9,20 +9,6 @@
 # General
 --------------------------------------------------------------*/
 
-.swiper-container {
-  width: 80vw;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: 50%;
-  min-height: 80vh;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -1603,7 +1589,6 @@ Swiper
   flex-direction: column;
 }
 
-
-
-
-
+/* -------------------------------
+Search
+-------------------------------- */

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function Signup() {
   return (
@@ -19,8 +20,17 @@ function Signup() {
                 Sign up
               </button>
               <a className="forgot text-muted" href="#">
-              Go back to the login page
-
+                {" "}
+                <NavLink
+                  className="nav-link"
+                  to="/signin"
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                  Go back to the login page
+                </NavLink>
               </a>
             </form>
           </div>
