@@ -9,20 +9,6 @@
 # General
 --------------------------------------------------------------*/
 
-.swiper-container {
-  width: 80vw;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: 50%;
-  min-height: 80vh;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -1437,3 +1423,172 @@ section {
   text-decoration: none;
 }
 
+/*--------------------------------------------------------------
+# Sign In
+--------------------------------------------------------------*/
+.div1 {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to right, #b92b27, #1565c0);
+}
+.box {
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 90%;
+  left: 58%;
+  background: #f7f4f4;
+  text-align: center;
+  transition: 0.25s;
+  margin-top: 132px;
+  border-radius: 20px;
+  
+  
+}
+
+.box input[type="text"],
+.box input[type="email"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #284132;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box h1 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.box input[type="text"]:focus,
+.box input[type="email"]:focus,
+.box input[type="password"]:focus {
+  width: 300px;
+  border-color: #284132;
+}
+
+.box button[type="submit"] {
+  border: 0;
+  background: black;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #284132;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+  background: #284132;
+}
+
+.forgot {
+  text-decoration: underline;
+}
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.social-network a.icoFacebook:hover {
+  background-color: #3b5998;
+}
+
+.social-network a.icoTwitter:hover {
+  background-color: #33ccff;
+}
+
+.social-network a.icoGoogle:hover {
+  background-color: #bd3518;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i {
+  color: #fff;
+}
+
+a.socialIcon:hover,
+.socialHoverClass {
+  color: #44bcdd;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  border-radius: 50%;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  transform: rotate(360deg);
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: #fff;
+  transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.div2 {
+  background: aliceblue;
+}
+
+
+
+/*------------------------------
+Swiper
+--------------------------------*/
+
+.swiper-container {
+  width: 80vw;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: 50%;
+  min-height: 80vh;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* -------------------------------
+Search
+-------------------------------- */
