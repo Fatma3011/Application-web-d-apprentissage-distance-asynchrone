@@ -14,10 +14,13 @@ function Courses() {
         <div className="row" data-aos="fade-up" data-aos-delay={100}>
           <div className="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" className="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" className="filter-active">Healthcare</li> 
+              <li data-filter=".filter-app">Professional Development</li>
+              <li data-filter=".filter-card">Technology</li>
+              <li data-filter=".filter-web"> Cloud and IT</li>
+              <li data-filter=".filter-web"> Computer Science</li>
+              <li data-filter=".filter-web">Data science</li>
+              <li data-filter=".filter-web">Engineering & Physical Sciences</li>
             </ul>
           </div>
         </div>

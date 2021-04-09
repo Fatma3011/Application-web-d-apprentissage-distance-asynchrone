@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import SwiperPart from './components/studentComponents/SwiperPart';
 import './index.css';
 import SignInPage from './pages/SignInPage';
+import Search from './components/studentComponents/Search';
+
 
 
 
@@ -11,7 +13,7 @@ import SignInPage from './pages/SignInPage';
 ReactDOM.render(
   <React.StrictMode>
     <>
-   <SignInPage />
+   <Search />
    </>
   </React.StrictMode>,
   document.getElementById('root')
