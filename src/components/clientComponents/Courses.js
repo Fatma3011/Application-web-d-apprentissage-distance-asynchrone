@@ -2,7 +2,7 @@ import React from 'react'
 
 function Courses() {
     return (
-<>
+
  
   <main id="main">
     <section id="portfolio" className="portfolio">
@@ -35,7 +35,7 @@ function Courses() {
                       <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <a href="#" className="btn btn-style-1 ">Go somewhere</a>
               </div>
 
 
@@ -60,7 +60,7 @@ function Courses() {
                       <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <a href="#" className="btn btn-style-1 ">Go somewhere</a>
               </div>
 
               <div className="portfolio-info">
@@ -85,7 +85,7 @@ function Courses() {
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <a href="#" className="btn btn-style-1 ">Go somewhere</a>
               </div>
 
               <div className="portfolio-info">
@@ -156,10 +156,6 @@ function Courses() {
       </div>
     </section>{/* End Portfolio Section */}
   </main>
-
-
-</>
-
     )
 }
 

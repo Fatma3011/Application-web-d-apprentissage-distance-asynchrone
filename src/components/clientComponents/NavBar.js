@@ -23,49 +23,40 @@ function NavBar() {
                     </NavLink>
                   </a>
                 </li>
-                
+                <li>
+                  <a className="nav-link scrollto" href="/home#about">
+                    About
+                  </a>
+                </li>
                 <li>
                   <a className="nav-link scrollto" href="/home#services">
-                    All Courses
+                    Courses
                   </a>
                 </li>
 
-              
+                <li>
+                  <a className="nav-link scrollto" href="/home#contact">
+                    Search
+                  </a>
+                </li>
 
                 <li>
                   <a className="nav-link scrollto" href="/home#contact">
                     Contact
                   </a>
                 </li>
-                <li class="dropdown">
+                <li>
                 
-                    <a href="#"
-                      className="nav-link getstarted scrollto "
+                    <NavLink
+                      className="nav-link getstarted scrollto"
                       to="/signin"
                       activeStyle={{
                         fontWeight: "bold",
                         color: "white",
                       }}
                     >
-                     AK <i class="bi bi-chevron-down"></i>
-                    </a>
-                    <ul>
-                    <li><a href="#">
-                       <NavLink className="nav-link" to="/student/myprofile">
-                           My profile
-                           </NavLink></a></li>
-                    <li><a href="#">
-                    <NavLink className="nav-link" to="/student/mycourses">
-                        My courses
-                        </NavLink>
-                        </a></li>
-                    <li><a href="#">My certificates </a></li>
-
-                    <li><a href="#">                    <NavLink className="nav-link" to="/home">
-Sign out</NavLink> </a></li>
-                    
-                  </ul>
-
+                      Sign in
+                    </NavLink>
                  
                 </li>
               </ul>
