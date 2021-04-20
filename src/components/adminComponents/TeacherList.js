@@ -36,7 +36,7 @@ function TeacherList() {
                         <th>LastName</th>
                         <th>Phone number</th>
                         <th>Salary</th>
-                        <th>Edit</th>
+                        
                         <th>Delete</th>
                       </tr>
                     </thead>
@@ -46,7 +46,6 @@ function TeacherList() {
                         <th>LastName</th>
                         <th>Phone number</th>
                         <th>Salary</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </tfoot>
@@ -56,11 +55,7 @@ function TeacherList() {
                         <td>Customer Support</td>
                         <td>New York</td>
                         <td>27</td>
-                        <th>
-                          <a href="#">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        </th>
+                        
                         <th>
                           <a href="#">
                             <i class="fa fa-trash" aria-hidden="true"></i>
