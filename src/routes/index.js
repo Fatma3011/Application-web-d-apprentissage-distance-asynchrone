@@ -1,23 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SignPage from "../pages/SignPage";
 
-import Home from "../pages/Home";
-import Footer from "../components/studentComponents/Footer";
-import NavBar from "../components/studentComponents/NavBar";
-import SwiperPart from "../components/studentComponents/SwiperPart";
-import AdminNavBar from "../components/adminComponents/AdminNavBar";
-import SideNav from "../components/adminComponents/SideNav";
-import Admin from "../pages/Admin";
+import Client from "./Client";
+import Admin from "./Admin";
 
 function Routes() {
   return (
     <Router>
+      
       <Switch>
-        <Route path="/home" exact component={Home} />
-        <Route path={["/signup", "/signin", "/forgotpassword"]} exact component={SignPage} />
-        <Route path="/swiper" exact component={SwiperPart} />
-        <Route path={["/admin"]}  component={Admin} />
+        
+        <Route path="/home"  component={Client} />
+        <Route path="/admin"  component={Admin} />  
+        <Route >
+        <img
+            src="./assets/img/404.jpg"
+            class="card-img"
+            alt="Beauty-picture"
+          />
+          <h1 align="center" className="mt-6">NOT FOUND 404 !!</h1>
+        </Route>  
         
 
       </Switch>

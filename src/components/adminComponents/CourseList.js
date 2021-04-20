@@ -1,20 +1,15 @@
 import React from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
 
-function TeacherList() {
-  const history = useHistory();
-  const redirectToAdd = () => {
-    history.push("/admin/addteacher");
-  };
+function CourseList() {
   return (
     <div>
+      <br />
+      <br />
       <div id="layoutSidenav_content">
         <main>
           <div className="container-fluid">
-            <h1 className="mt-4">Teachers List</h1>
-            <button type="button" onClick={redirectToAdd} class="btn  kk">
-              Add Teacher
-            </button>
+            <h1 className="mt-4">Courses List</h1>
+
             <br />
             <br />
             <div className="card mb-4">
@@ -32,20 +27,18 @@ function TeacherList() {
                   >
                     <thead>
                       <tr>
-                        <th>FirstName</th>
-                        <th>LastName</th>
-                        <th>Phone number</th>
-                        <th>Salary</th>
+                        <th>CourseName</th>
+                        <th>TeacherName</th>
+                        <th>Date</th>
                         <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>FirstName</th>
-                        <th>LastName</th>
-                        <th>Phone number</th>
-                        <th>Salary</th>
+                        <th>CourseName</th>
+                        <th>TeacherName</th>
+                        <th>Date</th>
                         <th>Edit</th>
                         <th>Delete</th>
                       </tr>
@@ -55,7 +48,6 @@ function TeacherList() {
                         <td>Donna Snider</td>
                         <td>Customer Support</td>
                         <td>New York</td>
-                        <td>27</td>
                         <th>
                           <a href="#">
                             <i class="fas fa-edit"></i>
@@ -79,4 +71,4 @@ function TeacherList() {
   );
 }
 
-export default TeacherList;
+export default CourseList;

@@ -41,7 +41,7 @@ function AdminNavBar() {
               className="dropdown-menu dropdown-menu-right"
               aria-labelledby="userDropdown"
             >
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="/admin/profile">
                 My profile
               </a>
               <div className="dropdown-divider" />

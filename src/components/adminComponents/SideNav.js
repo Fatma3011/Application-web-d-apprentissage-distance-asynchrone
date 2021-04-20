@@ -10,7 +10,7 @@ function SideNav() {
       <br/><br/><br/>
         <div className="sb-sidenav-menu ">
           <div className="nav">
-            <a className="nav-link" href="index.html">
+            <a className="nav-link" href="/admin/profile">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-user-shield" />
               </div>
@@ -19,11 +19,8 @@ function SideNav() {
             <div className="sb-sidenav-menu-heading">Teachers</div>
             <a
               className="nav-link collapsed"
-              href="#"
-              data-toggle="collapse"
-              data-target="#collapseLayouts"
-              aria-expanded="false"
-              aria-controls="collapseLayouts"
+              href="/admin/teacherlist"
+              
             >
               <div className="sb-nav-link-icon">
                 <i className="fas fa-list" />
@@ -33,15 +30,28 @@ function SideNav() {
             </a>
             
             
+            
+            
+            <div className="sb-sidenav-menu-heading">Courses</div>
+            <a className="nav-link" href="/admin/courselist">
+              <div className="sb-nav-link-icon">
+                <i className="fas fa-list" />
+              </div>
+              List of courses
+            </a>
             <div className="sb-sidenav-menu-heading">Students</div>
-            <a className="nav-link" href="charts.html">
+            <a className="nav-link" href="/admin/studentlist">
               <div className="sb-nav-link-icon">
                 <i className="fas fa-list" />
               </div>
               List of students 
             </a>
-            
-            <div className="sb-sidenav-menu-heading">Courses</div>
+            <a className="nav-link" href="#">
+              <div className="sb-nav-link-icon">
+              <i class="fa fa-sitemap" />
+              </div>
+              Classification 
+            </a>
           </div>
         </div>
         <br/>
