@@ -12,14 +12,7 @@ function Routes() {
         
         <Route path="/home"  component={Client} />
         <Route path="/admin"  component={Admin} />  
-        <Route >
-        <img
-            src="./assets/img/404.jpg"
-            class="card-img"
-            alt="Beauty-picture"
-          />
-          <h1 align="center" className="mt-6">NOT FOUND 404 !!</h1>
-        </Route>  
+         
         
 
       </Switch>
