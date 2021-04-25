@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -350,7 +351,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 80vh;
-  background: url("./img/hero-bg.jpg") center center;
+  background: url() center center;
   background-size: cover;
   position: relative;
 }
@@ -623,7 +624,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(2, 2, 2, 0.7), rgba(0, 0, 0, 0.7)), url("./img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(2, 2, 2, 0.7), rgba(0, 0, 0, 0.7)), url() fixed center center;
   background-size: cover;
   padding: 60px 0;
 }
@@ -1434,7 +1435,6 @@ section {
   transition: 0.25s;
   margin-top: 132px;
   border-radius: 20px;
-  
   
 }
 
@@ -11826,19 +11826,7 @@ body {
 }
 
 /* fin admin  */
-#fixe {
-  position        : fixed;
 
-}
-.cc {
-  background-color: #0f3361;
-}
-
-.kk {
-  text-decoration-color: #dddddd;
-  border-radius: 10px;
-  background-color:#dddddd;
-}
 /* Admin Profile ******/
 
 .emp-profile{
@@ -11983,7 +11971,7 @@ body {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #ee0979;
+  border: 1px solid #0aac4d;
   outline-width: 0;
   transition: All 0.5s ease-in;
   -webkit-transition: All 0.5s ease-in;
@@ -12006,37 +11994,35 @@ body {
   box-shadow: 0 0 0 2px white, 0 0 0 3px #5f768f;
 }
 
-#msform .action-button-next {
-  width: 30%;
-  background: #C5C5F1;
-  font-weight: bold;
-  color: white;
-  border: 0 none;
-  cursor: pointer;
-  padding: 10px 5px;
-  margin: 10px 5px;
-}
 
-#msform .action-button-next:hover, #msform .action-button-next:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
-}
+
+
 
 
 
 /*headings*/
-.fs-title {
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #2C3E50;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-  font-weight: bold;
+/* end  */
+.error{
+  color:#ed3c0d;
 }
 
-.fs-subtitle {
-  font-weight: normal;
-  font-size: 8px;
-  color: #666;
-  margin-bottom: 20px;
-}  
+#fixe {
+  position        : fixed;
 
+}
+.cc {
+  background-color: #0f3361;
+}
+
+#kk {
+  text-decoration-color: #dddddd;
+  border-radius: 10px;
+  background-color:#dddddd;
+}
+.adminpic{
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+
+
+}

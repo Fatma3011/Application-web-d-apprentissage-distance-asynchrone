@@ -49,7 +49,7 @@ function StudentList() {
                         
                         <th>
                           <a href="#">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </th>
                       </tr>

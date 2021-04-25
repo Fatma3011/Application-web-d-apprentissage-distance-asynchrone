@@ -30,7 +30,6 @@ function CourseList() {
                         <th>CourseName</th>
                         <th>TeacherName</th>
                         <th>Date</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
@@ -39,7 +38,6 @@ function CourseList() {
                         <th>CourseName</th>
                         <th>TeacherName</th>
                         <th>Date</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                       </tr>
                     </tfoot>
@@ -48,14 +46,10 @@ function CourseList() {
                         <td>Donna Snider</td>
                         <td>Customer Support</td>
                         <td>New York</td>
+
                         <th>
                           <a href="#">
-                            <i class="fas fa-edit"></i>
-                          </a>
-                        </th>
-                        <th>
-                          <a href="#">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </th>
                       </tr>

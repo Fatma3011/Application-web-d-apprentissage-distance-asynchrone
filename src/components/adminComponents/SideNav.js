@@ -48,7 +48,7 @@ function SideNav() {
             </a>
             <a className="nav-link" href="#">
               <div className="sb-nav-link-icon">
-              <i class="fa fa-sitemap" />
+              <i className="fa fa-sitemap" />
               </div>
               Classification 
             </a>

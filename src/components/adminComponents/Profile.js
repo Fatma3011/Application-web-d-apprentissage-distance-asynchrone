@@ -12,13 +12,12 @@ function Profile() {
         <div className="container emp-profile">
   <form method="post">
     <div className="row">
-      <div className="col-md-4">
-        <div className="profile-img">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt />
-          <div className="file btn btn-lg btn-primary">
-            Change Photo
-            <input type="file" name="file" />
-          </div>
+      <div className="col-md-1"></div>
+      <div className="col-md-2">
+
+        <div className="">
+          <img src="../../../assets/img/admin.png" alt="admin picture" className="adminpic"/>
+          
         </div>
       </div>
       <div className="col-md-6">
@@ -26,15 +25,15 @@ function Profile() {
         
           <div className="row">
           <div className="col-lg-11">
-          <h5>
+          <h4>
             Fatma Chtioui
-          </h5>
-          <h6>
+          </h4>
+          <h5>
             Administrator of e-learning website
-          </h6>
+          </h5>
           </div>
           <div className="col-lg-1">
-          <button type="button" onClick={redirectToAdd} class="btn  kk">
+          <button type="button" onClick={redirectToAdd} id="kk" class="btn">
               Edit
             </button>
           </div>
@@ -47,16 +46,14 @@ function Profile() {
             <li className="nav-item">
               <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-            </li>
+            
           </ul>
         </div>
       </div>
       
     </div>
     <div className="row">
-      <div className="col-md-4">
+      <div className="col-md-3">
         
       </div>
       <div className="col-md-8">
@@ -87,14 +84,7 @@ function Profile() {
                 <p>123 456 7890</p>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6">
-                <label>Profession</label>
-              </div>
-              <div className="col-md-6">
-                <p>Web Developer and Designer</p>
-              </div>
-            </div>
+            
           </div>
          
         </div>
