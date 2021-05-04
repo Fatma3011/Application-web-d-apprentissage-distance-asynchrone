@@ -12,15 +12,15 @@ function Signup() {
               <p className="text-muted">
                 {" "}
               </p>
-              <input type="text" name placeholder="Username" />
-              <input type="email" name placeholder="yourmail@mail.com" />
-              <input type="password" name placeholder="Password" />
-              <input type="password" name placeholder="Repeat your password" />
+              <input type="text" name ="username" placeholder="Username" />
+              <input type="email" name ="email" placeholder="yourmail@mail.com" />
+              <input type="password" name ="password" placeholder="Password" />
+              <input type="password" name ="re-password" placeholder="Repeat your password" />
               <button type="submit" className="">
                 Sign up
               </button>
-              <a className="forgot text-muted" href="#">
-                {" "}
+              <div className="forgot text-muted" >
+               
                 <NavLink
                   className="nav-link"
                   to="/signin"
@@ -31,7 +31,7 @@ function Signup() {
                 >
                   Go back to the login page
                 </NavLink>
-              </a>
+              </div>
             </form>
           </div>
         </div>

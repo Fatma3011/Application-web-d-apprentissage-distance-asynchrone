@@ -9,7 +9,7 @@ function NavBar() {
           <div className="header-container d-flex align-items-center justify-content-between">
             <div className="logo">
               <h1 className="text-light">
-                <a href="index.html">
+                <a >
                   <span>E-learning</span>
                 </a>
               </h1>
@@ -17,36 +17,36 @@ function NavBar() {
             <nav id="navbar" className="navbar">
               <ul>
                 <li>
-                  <a className="nav-link scrollto active" href="#hero">
-                    <NavLink className="nav-link" to="/home">
+                  <a className="nav-link scrollto active" >
+                    <NavLink className="nav-link" to="/">
                       Home
                     </NavLink>
                   </a>
                 </li>
                 <li>
-                  <a className="nav-link scrollto" href="/home#about">
+                  <NavLink className="nav-link scrollto" to="/">
                     About
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="nav-link scrollto" href="/home#services">
+                  <NavLink className="nav-link scrollto" to="/">
                     Courses
-                  </a>
+                  </NavLink>
                 </li>
 
                 <li>
-                  <a className="nav-link scrollto" href="/home#contact">
+                  <NavLink className="nav-link scrollto" to="/">
                     Search
-                  </a>
+                  </NavLink>
                 </li>
 
                 <li>
-                  <a className="nav-link scrollto" href="/home#contact">
+                  <NavLink className="nav-link scrollto" to="/">
                     Contact
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="#about">
+                  <a >
                     <NavLink
                       className="nav-link getstarted scrollto"
                       to="/signin"
