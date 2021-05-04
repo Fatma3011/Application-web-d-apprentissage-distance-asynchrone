@@ -1,6 +1,43 @@
-import React from "react";
+import React , {useState, useEffect} from "react";
+import { deleteCourse, getCourses } from "../../services/admin.service";
 
 function CourseList() {
+  const [clicked, setClicked] = useState(false);
+  const [data, setData] = useState([
+    {
+      firstname: "",
+      lastname: "",
+      email: "",
+      phonenumber: "",
+      salary: "",
+    },
+  ]);
+  
+  //Delete Teacher 
+  const handleDelete = (id) => {
+    //  call to service 
+    deleteCourse(id)
+      .then(() => {
+        console.log("teacher deleted");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    setClicked(!clicked);
+  };
+
+  //DidMount behavior
+  useEffect(() => {
+    //call to service
+    getCourses()
+      .then((response) => {
+        setData(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [clicked]);
+
   return (
     <div>
       <br />
@@ -31,6 +68,8 @@ function CourseList() {
                         <th>TeacherName</th>
                         <th>Date</th>
                         <th>Delete</th>
+                        <th>Delete</th>
+                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -39,20 +78,28 @@ function CourseList() {
                         <th>TeacherName</th>
                         <th>Date</th>
                         <th>Delete</th>
+                        <th>Delete</th>
+                        <th>Delete</th>
                       </tr>
                     </tfoot>
                     <tbody>
-                      <tr>
-                        <td>Donna Snider</td>
-                        <td>Customer Support</td>
-                        <td>New York</td>
+                      
+                      {data.map((item, index) => (
+                        <tr>
+                          <td>{item.title}</td>
+                          <td>{item.topic}</td>
+                          <th>{item.language}</th>
+                          <td>{item.estimatedTime}</td>
+                          <td>{item.chapters}</td>
 
-                        <th>
-                          <a href="#">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </th>
-                      </tr>
+                          <th>
+                            <a href="#" onClick={() => handleDelete(item._id)}>
+                              <i className="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                          </th>
+                        </tr>
+                      ))}
+                     
                     </tbody>
                   </table>
                 </div>

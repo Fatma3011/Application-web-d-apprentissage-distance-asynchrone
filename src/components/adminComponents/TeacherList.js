@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
-import axios from "axios";
-import { deleteTeacher, getTeachers } from "../../services/Teacher.service";
+import { useHistory } from "react-router-dom";
+import { deleteTeacher, getTeachers } from "../../services/admin.service";
 
 function TeacherList() {
 
   const history = useHistory();
+  
   //state
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState([

@@ -6,8 +6,6 @@ function request(options) {
     // success handler
     function onSuccess (response) {
       console.log('Request Success !')
-
-      console.log(response.data)
         return response
 
     }

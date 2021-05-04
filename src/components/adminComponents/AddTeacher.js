@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { postTeacher } from "../../services/Teacher.service";
+import { postTeacher } from "../../services/admin.service";
 
 function AddTeacher() {
   const [emailError, setEmailError] = useState(false);

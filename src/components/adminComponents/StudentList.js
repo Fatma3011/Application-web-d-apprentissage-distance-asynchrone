@@ -1,6 +1,42 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
+import { deleteStudent, getStudents } from "../../services/admin.service";
 
 function StudentList() {
+  const [clicked, setClicked] = useState(false);
+  const [data, setData] = useState([
+    {
+      firstname: "",
+      lastname: "",
+      email: "",
+      phonenumber: "",
+      salary: "",
+    },
+  ]);
+  
+  //Delete Teacher 
+  const handleDelete = (id) => {
+    //  call to service 
+    deleteStudent(id)
+      .then(() => {
+        console.log("teacher deleted");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    setClicked(!clicked);
+  };
+
+  //DidMount behavior
+  useEffect(() => {
+    //call to service
+    getStudents()
+      .then((response) => {
+        setData(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [clicked]);
   return (
     <div>
       <br />
@@ -42,17 +78,21 @@ function StudentList() {
                       </tr>
                     </tfoot>
                     <tbody>
-                      <tr>
-                        <td>Donna Snider</td>
-                        <td>Customer Support</td>
-                        <td>New York</td>
-                        
-                        <th>
-                          <a href="#">
-                            <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
-                        </th>
-                      </tr>
+                    {data.map((item, index) => (
+                        <tr>
+                          <td>{item.title}</td>
+                          <td>{item.topic}</td>
+                          <th>{item.language}</th>
+                          <td>{item.estimatedTime}</td>
+                          <td>{item.chapters}</td>
+
+                          <th>
+                            <a href="#" onClick={() => handleDelete(item._id)}>
+                              <i className="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                          </th>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
