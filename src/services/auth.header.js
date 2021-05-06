@@ -19,15 +19,12 @@ function loggedIn() {
 }
 function isTokenExpired(token) {
         try {            
-            console.log("avant ")
             const decoded = decode(token.token);
-            console.log("avant 2")
             if (decoded.exp < Date.now() / 1000) { // Checking if token is expired.
                 logout()
                 return true;
             }
             else
-            console.log("else ")
                 return false;
         }
         catch (err) {

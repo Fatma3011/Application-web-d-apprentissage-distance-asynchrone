@@ -1,14 +1,14 @@
 import React from "react";
 
 function AdminNavBar() {
+
   return (
     <div>
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">
         <a className="navbar-brand" href="index.html">
           e-learning
         </a>
-        
-        <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        {/* <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
           <div className="input-group">
             <input
               className="form-control"
@@ -23,9 +23,9 @@ function AdminNavBar() {
               </button>
             </div>
           </div>
-        </form>
+        </form> */}
         <ul className="navbar-nav ml-auto ml-md-0">
-          <li className="nav-item dropdown">
+          <li className="nav-item posAdminIcon dropdown">
             <a
               className="nav-link dropdown-toggle"
               id="userDropdown"

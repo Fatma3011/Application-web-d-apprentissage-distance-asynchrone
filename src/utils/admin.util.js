@@ -7,7 +7,6 @@ function request(options) {
     function onSuccess (response) {
       console.log('Request Success !')
         return response
-
     }
   
     // failed handler

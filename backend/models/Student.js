@@ -2,28 +2,26 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const StudentSchema = new Schema(
-    {
-      firstname: {
-        type: String,
-        required: true,
-        minlength: 3,
-      },
-      lastname: {
-        type: String,
-        minlength: 3,
-      },
-      email: {
-        unique: true,
-        type: String,
-        required: true,
-      },
-      password: {
-        type: String,
-      },
+  {
+    userName:{
+        type:String,
+        required:true
     },
-    {
-      timestamps: true,
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:[true,'Empty password is not allowed ']
+
+    },
+    date: {
+        type:Date,
+        default:Date.now
     }
-  );
-  const student = mongoose.model("student", StudentSchema);
+  }
+);
+const student = mongoose.model("student", StudentSchema);
 module.exports = student;

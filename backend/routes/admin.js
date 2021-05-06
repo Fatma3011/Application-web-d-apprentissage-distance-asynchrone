@@ -1,32 +1,34 @@
 const router =require('express').Router();
-let teacher=require('../models/Teacher');
-let course=require('../models/Course');
+let teacher=require('../models/TeacherModel');
+let course=require('../models/CourseModel');
 let student=require('../models/Student');
 let user=require('../models/User');
 const jwt = require('jsonwebtoken');
 
 //sera executer pour toute les paths de l'admin ('/admin/****' )
+
 router.use(function (req, res, next) {
+    
     console.log('Time:', Date.now());
     const token = req.headers.authorization.split(' ')[1]
-    console.log(token)
+    // console.log(token)
      jwt.verify(token, 'RANDOM_TOKEN_SECRET' ,(err, decodedToken) => {
             if(err) return res.status(401)
             user.findById(decodedToken.userId)
                                             .then ((user)=>{if (user){
-                                                console.log(user)
+                                                // console.log(user)
                                                 next()
                                             }
                                                 })               
                                             .catch ((user) => {if (!user){res.status(400)}} )
                 
             })
-            next();
         });
   
 //pour lister les enseignants
 
 router.route('/teacherlist').get((req,res)=>{
+
     teacher.find()
     .then(teachers=>res.json(teachers))
     .catch(err => res.status(400).json('Error: '+err));
@@ -53,7 +55,8 @@ router.route('/teacherlist/:id').delete((req,res)=>{
 //pour ajouter un enseignant
 
 router.route('/addteacher').post((req,res)=>{
-    
+    console.log(req.body);
+
     const firstname = req.body.firstname;
     const lastname = req.body.lastname;
     const specialization = req.body.specialization;
@@ -75,6 +78,16 @@ router.route('/addteacher').post((req,res)=>{
     });
 });
 
+ //pour chercher un cours
+
+ router.route('/coursechapters/:coursename/:id').get((req,res)=>{
+   course.findById(req.params.id)
+   .then(courses=>{
+       res.status(200).json(courses.chapters)})
+
+   .catch(err => res.status(400).json('Error: '+err));
+});
+
 //pour lister les cours
 
 router.route('/courselist').get((req,res)=>{
@@ -85,6 +98,7 @@ router.route('/courselist').get((req,res)=>{
 
 // pour supprimer un cours
 
+
 router.route('/courselist/:id').delete((req,res)=>{
     course.findByIdAndDelete(req.params.id)
 
@@ -93,13 +107,7 @@ router.route('/courselist/:id').delete((req,res)=>{
 
 });
 
- //pour chercher un cours
 
- router.route('/courselist/:id').get((req,res)=>{
-    course.findById(req.params.id)
-    .then(courses=>res.json(courses))
-    .catch(err => res.status(400).json('Error: '+err));
-});
 
 //pour lister les etudiants
 
@@ -121,7 +129,6 @@ router.route('/studentlist').get((req,res)=>{
 
 router.route('/studentlist/:id').delete((req,res)=>{
     student.findByIdAndDelete(req.params.id)
-
     .then(()=> res.json('student deleted'))
     .catch(err => res.status(400).json('Error: '+err));
 

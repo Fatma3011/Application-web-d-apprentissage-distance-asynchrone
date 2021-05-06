@@ -12,10 +12,11 @@ function Routes() {
       <Switch>
         
         <Route path="/admin" component={Admin} />
-       
+
         <Route path="/home" component={Client} />
 
         <Route path="/form" component={Form} />
+        
         <Route path="/admin_nonauthentifie" component={Page401} />
 
       </Switch>

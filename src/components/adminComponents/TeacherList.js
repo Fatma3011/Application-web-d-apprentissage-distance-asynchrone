@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { deleteTeacher, getTeachers } from "../../services/admin.service";
+import {
+  BrowserRouter as Router,
+  useRouteMatch,   
 
+  Route,
+  Switch,
+} from "react-router-dom"; 
 function TeacherList() {
-
+  const c = useRouteMatch();
+  console.log(c)
   const history = useHistory();
   
   //state
@@ -53,7 +60,29 @@ function TeacherList() {
       <div id="layoutSidenav_content">
         <main>
           <div className="container-fluid">
-            <h1 className="mt-4">Teachers List</h1>
+          <div className="row" >
+            <div class="col-md-9">  <h1 className="mt-4">Teachers List</h1></div>
+            <div className="col-md-3">
+              <br/>
+            <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+          <div className="input-group">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Search for..."
+              aria-label="Search"
+              aria-describedby="basic-addon2"
+            />
+            <div className="input-group-append">
+              <button className="btn btn-primary" type="button">
+                <i className="fas fa-search" />
+              </button>
+            </div>
+          </div>
+        </form>
+            </div>
+          </div>
+          
             <button type="button" onClick={redirectToAdd} class="btn" id="kk">
               Add Teacher
             </button>
@@ -79,7 +108,6 @@ function TeacherList() {
                         <th>E-mail</th>
                         <th>Phone number</th>
                         <th>Salary</th>
-
                         <th>Delete</th>
                       </tr>
                     </thead>
@@ -98,15 +126,14 @@ function TeacherList() {
                         <tr>
                           <td>{item.firstname}</td>
                           <td>{item.lastname}</td>
-                          <th>{item.email}</th>
+                          <td>{item.email}</td>
                           <td>{item.phonenumber}</td>
                           <td>{item.salary}</td>
-
-                          <th>
+                          <td>
                             <a href="#" onClick={() => handleDelete(item._id)}>
                               <i className="fa fa-trash" aria-hidden="true"></i>
                             </a>
-                          </th>
+                          </td>
                         </tr>
                       ))}
                     </tbody>

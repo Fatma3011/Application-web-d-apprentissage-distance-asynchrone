@@ -9,7 +9,7 @@ function Form() {
   const history = useHistory();
 
   const redirectToAdd = () => {
-    history.push("/admin");
+    history.push("/admin/profile");
   };
 
     const initialValues = {

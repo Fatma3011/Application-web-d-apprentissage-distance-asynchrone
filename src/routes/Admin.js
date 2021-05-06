@@ -14,20 +14,22 @@ import AdminNavBar from '../components/adminComponents/AdminNavBar';
 import SideNav from '../components/adminComponents/SideNav';
 import EditProfile from '../components/adminComponents/EditProfile';
 import EditPassword from '../components/adminComponents/EditPassword';
-import {userService} from '../services/auth.header'
+import {userService} from '../services/auth.header';
 import Page401 from '../components/adminComponents/Page401';
+import ChaptersOfCourse from '../components/adminComponents/CourseChapters';
 
 function Admin() {
     const { url } = useRouteMatch();
  
-    // let token = userService.getToken();
+    let token = userService.getToken()
 
-    // if(!token){
-    //   window.location='admin_nonauthentifie'
-    // } 
-    // else if ( token && userService.isTokenExpired(token)==true){
+    
+    if(!token ||  userService.isTokenExpired(token)==true){
+      return <Page401/>;
+    
+  }
       return (
-      <>
+      <div>
         <div className="row">
         <AdminNavBar />
         </div>
@@ -42,14 +44,18 @@ function Admin() {
                 <Route path={`${url}/addteacher`} exact component={AdminAddTeacher } />
                 <Route path={`${url}/courselist`} exact component={AdminCourseList } />
                 <Route path={`${url}/studentlist`} exact component={AdminStudent } />
-                <Route path={`${url}/profile`} exact component={AdminProfile } />
+                <Route path={`${url}/profile`} exact component={AdminProfile } />                                                                           
                 <Route path={`${url}/editprofile`} exact component={EditProfile } />
                 <Route path={`${url}/editpassword`} exact component={EditPassword } />
+                <Route path={`${url}/coursechapters/:coursename/:id`}  component={ChaptersOfCourse } /> 
+                {/* affichage de quiz chez l'admin  */}
+                {/* <Route path={`${url}/coursechapters/quiz/:id`}  component={ChaptersOfCourse } /> */}  
+
               </Switch>
             </Router>
             </div>
             </div>
-      </>
+      </div>
 );
     // }
     

@@ -4,7 +4,6 @@ import {userService} from './auth.header'
 let token = userService.getToken();
 
 export async function postTeacher(teacher){
-    
     try {
         const response = await request({
             method: 'POST',
@@ -30,7 +29,8 @@ export async function postTeacher(teacher){
 }
 export async function getTeachers() {
     try {
-      
+      console.log(token.token)
+
 const response = await request({ 
         method: 'GET',
         url: '/admin/teacherlist',
@@ -74,6 +74,28 @@ export async function getCourses() {
 const response = await request({ 
         method: 'GET',
         url: '/admin/courselist',
+        headers :
+                {Authorization:
+                     "Bearer " + token.token ,
+                }
+      })
+      console.log(token)
+      const data = await response.data
+      console.log(response.data)
+  
+      return response.data
+        
+    } catch (error) {
+      throw (error.response || error.message)
+    }
+  }
+  
+export async function getCourse(id) {
+    try {
+      
+const response = await request({ 
+        method: 'GET',
+        url: `/admin/coursechapters/:coursename/${id}`,
         headers :
                 {Authorization:
                      "Bearer " + token.token ,

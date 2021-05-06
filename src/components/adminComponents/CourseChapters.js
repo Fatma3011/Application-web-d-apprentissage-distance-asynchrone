@@ -1,10 +1,11 @@
 import React , {useState, useEffect} from "react";
-import { deleteCourse, getCourses } from "../../services/admin.service";
-import { useHistory } from "react-router-dom";  
+import {useParams,useHistory} from "react-router-dom";
+import { deleteCourse, getCourse } from "../../services/admin.service";
 
-
-function CourseList() {
+function ChaptersOfCourse() {
   const history = useHistory();
+
+  let {coursename, id} = useParams();
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState([
     {
@@ -15,26 +16,18 @@ function CourseList() {
       salary: "",
     },
   ]);
-  const redirectToChapter = (coursename , id) => {
-    history.push(`/admin/coursechapters/${coursename}/${id}`);
-  };
-  //Delete Teacher 
-  const handleDelete = (id) => {
-    //  call to service 
-    deleteCourse(id)
-      .then(() => {
-        console.log("teacher deleted");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    setClicked(!clicked);
+  const redirectToQuiz = (id,idQuiz) => {
+    history.push(`/admin/coursechapters/quiz/${id}/${idQuiz}`);
   };
 
   //DidMount behavior
+
   useEffect(() => {
     //call to service
-    getCourses()
+        console.log(coursename,id);
+        console.log(coursename);
+
+    getCourse(id)
       .then((response) => {
         setData(response);
       })
@@ -50,8 +43,10 @@ function CourseList() {
       <div id="layoutSidenav_content">
         <main>
           <div className="container-fluid">
-            <h1 className="mt-4">Courses List</h1>
-
+            {/* <h1 className="mt-4">Course : {   }</h1> */}
+            <h2 className="mt-4">Chapters of course : 
+             <span className="course">{"   " + coursename }</span>
+             </h2>
             <br />
             <br />
             <div className="card mb-4">
@@ -69,50 +64,42 @@ function CourseList() {
                   >
                     <thead>
                       <tr>
-                        <th>Title</th>
-                        <th>Topic</th>
-                        <th>Created By</th>
-                        <th>Language</th>
-                        <th>Estimated Time</th>
-                        <th>Chapters</th>
-                        <th>Delete</th>
+                        <th>Chapter Title</th>
+                        <th>Chapter Time</th>
+                        <th>Chapter File</th>
+                        <th>Points</th>
+                        <th>Quiz</th>
 
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>Title</th>
-                        <th>Topic</th>
-                        <th>Created By</th>
-                        <th>Language</th>
-                        <th>Estimated Time</th>
-                        <th>Chapters</th>
-                        <th>Delete</th>
-
+                      <th>Chapter Title</th>
+                        <th>Chapter Time</th>
+                        <th>Chapter File</th>
+                        <th>Points</th>
+                        <th>Quiz</th>
                       </tr>
                     </tfoot>
                     <tbody>
                       
                       {data.map((item, index) => (
                         <tr>
-                          <td>{item.title}</td>
-                          <td>{item.topic}</td>
-                          <td>{item.createdBy}</td>
-                          <td>{item.language}</td>
-                          <td>{item.estimatedTime} hours</td>
+                          <td>{item.chapterTitle}</td>
+                          <td>{item.chapterTime} hours</td>
+                          <th>
+                            {/* {item.chapterFile} */}
+                            </th>
+                          <td>{item.points}</td>
                           <td>
                             <a href="" 
-                            onClick={() => redirectToChapter(item.title , item._id)}
+                            onClick={() => redirectToQuiz(id,item._id)}
                             >
                             <i class="far fa-folder-open"></i>
                             </a>
                           </td>
 
-                          <td>
-                            <a href="#" onClick={() => handleDelete(item._id)}>
-                              <i className="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                          </td>
+                      
                         </tr>
                       ))}
                      
@@ -128,4 +115,4 @@ function CourseList() {
   );
 }
 
-export default CourseList;
+export default ChaptersOfCourse;

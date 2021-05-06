@@ -13,12 +13,12 @@ function StudentList() {
     },
   ]);
   
-  //Delete Teacher 
+  //Delete Student 
   const handleDelete = (id) => {
     //  call to service 
     deleteStudent(id)
       .then(() => {
-        console.log("teacher deleted");
+        console.log("Student deleted");
       })
       .catch((error) => {
         console.log(error);
@@ -27,6 +27,7 @@ function StudentList() {
   };
 
   //DidMount behavior
+
   useEffect(() => {
     //call to service
     getStudents()
@@ -63,29 +64,23 @@ function StudentList() {
                   >
                     <thead>
                       <tr>
-                        <th>StudentName</th>
-                        <th>kkkk</th>
-                        <th>Date</th>
+                        <th>Student Name</th>
+                        <th>E-mail</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>CourseName</th>
-                        <th>TeacherName</th>
-                        <th>Date</th>
+                        <th>Student Name</th>
+                        <th>E-mail</th>
                         <th>Delete</th>
                       </tr>
                     </tfoot>
                     <tbody>
                     {data.map((item, index) => (
                         <tr>
-                          <td>{item.title}</td>
-                          <td>{item.topic}</td>
-                          <th>{item.language}</th>
-                          <td>{item.estimatedTime}</td>
-                          <td>{item.chapters}</td>
-
+                          <td>{item.userName}</td>
+                          <td>{item.email}</td>
                           <th>
                             <a href="#" onClick={() => handleDelete(item._id)}>
                               <i className="fa fa-trash" aria-hidden="true"></i>

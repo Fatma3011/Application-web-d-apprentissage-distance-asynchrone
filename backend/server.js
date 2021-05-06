@@ -49,7 +49,7 @@ app.post('/form', (req, res, next)=>{
                     token: jwt.sign(
                     { userId: user._id },
                     'RANDOM_TOKEN_SECRET',
-                    { expiresIn: 10 }
+                    { expiresIn: '24h' }
                   )} 
                 res
                   .header({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + userToken })
