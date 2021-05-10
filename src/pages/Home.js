@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Cover from '../components/studentComponents/Cover'
-import Courses from '../components/studentComponents/Courses'
-import CountSection from '../components/studentComponents/CountSection'
-import About from '../components/studentComponents/About'
-import Recommended from '../components/studentComponents/Recommended'
+import Cover from '../components/clientComponents/Cover'
+import Courses from '../components/clientComponents/Courses'
+import CountSection from '../components/clientComponents/CountSection'
+import About from '../components/clientComponents/About'
+import Recommended from '../components/clientComponents/Recommended'
 
 
 function Home() {

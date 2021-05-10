@@ -2,7 +2,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+//import Routes from './routes/index';
+import SignPage from "./pages/SignPage";
 import Routes from './routes/index';
+
 
 
 

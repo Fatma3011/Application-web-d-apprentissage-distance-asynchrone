@@ -1,7 +1,35 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
-function NavBar() {
+import React,{useEffect, useState } from "react";
+import { NavLink, useParams} from "react-router-dom";
+import {getInfo} from '../../actions/student.service';
+import {logout} from  '../../actions/Auth.service'
+function NavBar(props) {
+  
+  const [data, setData] = useState([
+    {
+      userName: "",
+      email: "",
+      
+      
+    },
+  ]);
+  const {id} = useParams();
+  //getValues
+  useEffect(() => {
+    console.log(id);
+ 
+    getInfo(id)
+    .then(response=>{console.log(response);
+      
+      console.log(response.data.userName);
+      setData(
+        {
+          userName: response.data.userName,
+          email:response.data.email,
+        })}
+      
+      )
+    .catch(console.log("ARRIIIIIIIIJJJJJJ"));
+  },[])
   return (
     <>
       <header id="header" className="fixed-top d-flex align-items-center">
@@ -46,17 +74,49 @@ function NavBar() {
                   </a>
                 </li>
                 <li>
+                  {props.auth ? (  <li class="dropdown">
                 
-                    <NavLink
-                      className="nav-link getstarted scrollto"
-                      to="/signin"
-                      activeStyle={{
-                        fontWeight: "bold",
-                        color: "white",
-                      }}
-                    >
-                      Sign in
+                <a href="#"
+                  className="nav-link getstarted scrollto "
+                  to="/signin"
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                 AK <i class="bi bi-chevron-down"></i>
+                </a>
+                <ul>
+                <li><a href="#">
+                   <NavLink className="nav-link" to="/student/myprofile">
+                       My profile
+                       </NavLink></a></li>
+                <li><a href="#">
+                <NavLink className="nav-link" to="/student/mycourses">
+                    My courses
                     </NavLink>
+                    </a></li>
+                <li><a href="#">My certificates </a></li>
+
+                <li><a href="#"> <NavLink className="nav-link" to="/home" onClick={logout}>
+
+Sign out</NavLink> </a></li>
+                
+              </ul>
+
+             
+            </li>  ): (
+                
+                <NavLink
+                  className="nav-link getstarted scrollto"
+                  to="/signin"
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                  Sign in
+                </NavLink>)  }
                  
                 </li>
               </ul>

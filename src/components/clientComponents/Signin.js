@@ -1,71 +1,104 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {useFormik} from 'formik'
+import axios from 'axios'
+import * as Yup from 'yup'
+import {useHistory} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import {useState} from "react";
+import {logIn } from "../../actions/Auth.service";
 
-function Signin() {
+function Signin (props) {
+  let history=useHistory()
+
+  const [error1,setError1]=useState(false)
+  const [error2,setError2]=useState(false)
+  const [showPassword,setShowPassword]=useState(false)
+
+  const  initialValues= {
+                userName:'',
+    email:'',password:'',password2:''}
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Required'),
+      password: Yup.string()
+      .required('Required'),
+   })
+  const onSubmit=(event)=>{
+    const registred={
+        
+        email:formik.values.email,
+        password:formik.values.password
+      
+     }
+    logIn( registred)
+
+    .then(response=>{
+      console.log(response.data.message);
+      if (response.data.message==="notfound")
+      {setError2(true);setError1(false)} 
+      if(response.data.message==="incorrectpassword")
+      {setError1(true);setError2(false);}
+      if(response.data.message==="loggedin"){
+      window.location=`/student/myprofile/${response.data.result._id}`;
+        setError1(false);
+        setError2(false);    
+        
+    }})
+
+    .catch(console.log("noooo"))
+  }
+
+    const formik=useFormik({ 
+       initialValues,onSubmit,validationSchema})
+      
   return (
-
     <div className="container">
       <div className="row">
         <div className="col-md-6">
           <div className="card">
-            <form onsubmit="event.preventDefault()" className="box">
-              <h1>Sign In </h1>
+            <form onSubmit={formik.handleSubmit} className="box">
+              <h1>Sign in </h1>
               <p className="text-muted">
+              <div className='error'> {props.auth?  "You must Sign in first":""}</div>
+           
                 {" "}
                 Please enter your login and password!
               </p>
-              <input type="text" name placeholder="Username" />
-              <input type="password" name placeholder="Password" />
-              <a className="forgot text-muted" href="#">
-              <NavLink
-                      className="nav-link"
-                      to="/forgotpassword"
-                      activeStyle={{
-                        fontWeight: "bold",
-                        color: "white"}}
-                    >
-                Forgot password?
-                    </NavLink>
-              </a>
-              {/* <input type="submit" name defaultValue="Login" href="#" /> */}
+              <input type="email" onChange={formik.handleChange}  placeholder="Your email address"  name="email" value={formik.values.email}/>
+              {formik.touched.email && formik.errors.email ? (
+          <div className='error'>{formik.errors.email}</div>
+        ) : null}
+              <input type={showPassword? "text" :"password"} onChange={formik.handleChange} name="password" placeholder=" your password" value={formik.values.password}/>
+             
               <button type="submit" className="">
                 Sign in
               </button>
-              <a className="forgot text-muted" href="#">
-              <NavLink
-                      className="nav-link"
-                      to="/signup"
-                      activeStyle={{
-                        fontWeight: "bold",
-                        color: "white"}}
-                    >
-                Sign up ?
-                    </NavLink>
-              </a>
-              {/* <div className="col-md-12">
-                <ul className="social-network social-circle">
-                  <li>
-                    <a href="#" className="icoFacebook" title="Facebook">
-                      <i className="fab fa-facebook-f" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icoTwitter" title="Twitter">
-                      <i className="fab fa-twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="icoGoogle" title="Google +">
-                      <i className="fab fa-google-plus" />
-                    </a>
-                  </li>
-                </ul>
-              </div> */}
+              {error1 ? (
+          <div className='error'>Password Incorrect</div>
+        ) : null}     
+         {error2 ? (
+          <div className='error'>This account doesn t exist <br/>
+          Go to   
+          <NavLink 
+                className="nav-link"
+                to="/signup"
+                activeStyle={{ color: "red" }}
+              >
+                 Sign Up </NavLink></div>
+        ) : null}
+             <div className='error'>  <NavLink 
+                className="nav-link"
+                to="/signup"
+                activeStyle={{ color: "red" }}
+              >
+              Sign Up </NavLink> </div>
             </form>
           </div>
         </div>
       </div>
-  </div>
+    </div>
   );
 }
 

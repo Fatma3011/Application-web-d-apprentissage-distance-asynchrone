@@ -1455,17 +1455,17 @@ section {
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #284132;
+  border: 2px solid #0f3361;
   padding: 10px 10px;
   width: 250px;
   outline: none;
-  color: white;
+  color: black;
   border-radius: 24px;
   transition: 0.25s;
 }
 
 .box h1 {
-  color: black;
+  color:#0f3361;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -1474,16 +1474,16 @@ section {
 .box input[type="email"]:focus,
 .box input[type="password"]:focus {
   width: 300px;
-  border-color: #284132;
+  border-color: #0f3361;
 }
 
 .box button[type="submit"] {
   border: 0;
-  background: black;
+  background:#0f3361;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #284132;
+  border: 2px solid #0f3361;
   padding: 14px 40px;
   outline: none;
   color: white;
@@ -1493,7 +1493,7 @@ section {
 }
 
 .box input[type="submit"]:hover {
-  background: #284132;
+  background: #0f3361;
 }
 
 .forgot {
@@ -1511,7 +1511,7 @@ ul.social-network li {
   display: inline;
   margin: 0 5px;
 }
-
+.error{color:red;font-size: 15px;}
 .social-network a.icoFacebook:hover {
   background-color: #3b5998;
 }
