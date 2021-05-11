@@ -1,7 +1,7 @@
 const path = require('path');
 const multer = require("multer")
 
-const PATH="./uploads";
+const PATH="./uploads/chapterFile";
 
 
 let storage = multer.diskStorage({
@@ -9,7 +9,7 @@ let storage = multer.diskStorage({
         cb(null,PATH);
     },
     filename: function(req, file, cb){
-       cb(null,Date.now()+'-'+path.extname(file.originalname));
+       cb(null,file.originalname.toLowerCase().replace(/ /g, '_'));
     }
  });
 

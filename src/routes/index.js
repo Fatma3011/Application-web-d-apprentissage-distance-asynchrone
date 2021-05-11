@@ -5,14 +5,15 @@ import Client from "./Client";
 import Teacher from "./Teacher";
 
 
-
 function Routes() {
   return (
     <Router>
       <Switch>
         <Route path="/" exact component={Client} />
         <Route path="/teacher"  component={Teacher} />
-       
+        {/* <Route path={`/readchapter`}  exact component={ReadChapter} /> */}
+
+
 
 
       </Switch>

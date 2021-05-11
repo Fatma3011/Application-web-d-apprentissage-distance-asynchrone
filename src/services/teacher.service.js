@@ -47,6 +47,8 @@ export async function getTeacher(id) {
         throw (error.response || error.message)
     }
 }
+
+
 //----------get all the course of a teacher------------
 export async function getCourseByTeacher(id) {
   try {
@@ -107,3 +109,68 @@ export async function getCourse(id) {
     throw (error.response || error.message)
   }
 }
+// upload file *****
+
+export async function uploadFile(chapter){
+  try {
+      const response = await request({
+          method: 'POST',
+          url:"/teacher/uploadFile",
+          data: chapter,
+          dataType:'json',
+      })
+         return response
+  } catch (error) {
+      throw (error.response || error.message)
+  }
+}
+
+
+//delete file
+export async function deleteFile(path){
+  try {
+      const response = await request({
+          method: 'POST',
+          url:"/teacher/deleteFile",
+          data: path,
+          dataType:'json',
+      })
+         return response
+  } catch (error) {
+      throw (error.response || error.message)
+  }
+}
+
+export async function getFile(path){
+  try {
+      const response = await request({
+          method: 'GET',
+          url:"/teacher/getFile",
+          data: path,
+          dataType:'json',
+      })
+         return response
+  } catch (error) {
+      throw (error.response || error.message)
+  }
+}
+
+
+
+
+export async function getImage(imagePath){
+  try {
+      const response = await request({
+          method: 'POST',
+          url:"/teacher/getImage",
+          data: imagePath,
+         responseType: 'blob'  
+        //dataType:'json',
+   
+         })
+         return response
+  } catch (error) {
+      throw (error.response || error.message)
+  }
+}
+

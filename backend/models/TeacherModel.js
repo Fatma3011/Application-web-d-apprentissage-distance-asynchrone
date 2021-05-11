@@ -28,7 +28,12 @@ const teacherSchema = new mongoose.Schema({
     updateDate:{
         type:Date,
         default:Date.now
-    }
+    },
 
-})
+
+}
+,
+{
+    timestamps: true
+  })
 module.exports = mongoose.model('teacher',teacherSchema)

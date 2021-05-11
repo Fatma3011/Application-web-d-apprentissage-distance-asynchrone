@@ -10,7 +10,7 @@ import SideBar from "../components/teacherComponents/Sidebar";
 import Profile from "../components/teacherComponents/Profile";
 import Courses from "../components/teacherComponents/Courses";
 import AddCourse from "../components/teacherComponents/AddCourse";
-import EditCourse from "../components/teacherComponents/EditCourse";
+import ViewCourse from "../components/teacherComponents/ViewCourse";
 
 function Teacher() {
   let url = useRouteMatch();
@@ -29,7 +29,7 @@ function Teacher() {
               <Route path={`${url.path}/profile/`}  exact component={Profile} />
               <Route path={`${url.path}/addCourse`}  exact component={AddCourse} />
               <Route path={`${url.path}/courses`}  exact component={Courses} />
-              <Route path={`${url.path}/editCourse/:courseID`}  exact component={EditCourse} />
+              <Route path={`${url.path}/seeCourse/:idC`}  exact component={ViewCourse} />
 
               {/* <Route path={`${url.path}/editCourse/:id`}  exact component={EditCourse} />
               <Route path={`${url.path}/viewCourse/:id`}  exact component={ViewCourse} /> */} 

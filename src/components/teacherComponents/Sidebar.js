@@ -27,7 +27,7 @@ function Sidebar() {
             <div className="sb-nav-link-icon">
               <i className="fas fa-list" />
             </div>
-            <NavLink  className="nav-link" to="/teacher/courseList">
+            <NavLink  className="nav-link" to="/teacher/courses">
             Courses
                     </NavLink>
             

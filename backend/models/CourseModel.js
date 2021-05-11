@@ -1,4 +1,6 @@
 const mongoose=require('mongoose')
+
+
 const courseSchema = new mongoose.Schema({
     title:String,
     topic:String,
@@ -6,11 +8,18 @@ const courseSchema = new mongoose.Schema({
     language:String,
     
     estimatedTime:String,
-    
+    image:{
+      name:String,
+      path:String,
+      imageType:String
+    },
      chapters:[{
-            chapterTitle:String,
+           chapterTitle:String,
             chapterTime: String,
-            chapterFile:String,
+            chapterFile:{
+              name:String,
+              path:String
+            },
             points:String,
             quiz:          [{
                                 questionText:String,
@@ -22,14 +31,22 @@ const courseSchema = new mongoose.Schema({
                                 points:String,
                                 answerKey:String
              }]  
-    }],
+    
+    // chapterID:{
+    //  // type:String
+    //   type:mongoose.Schema.Types.ObjectId,ref:'Chapter'
+
+    //}
+
+
+     }],
     creationDate:{
     type:Date,
     default:Date.now
     },
     createdBy:{
       type:String
-      // type:mongoose.Schema.Types.ObjectId,ref:'teacher'
+       //type:mongoose.Schema.Types.ObjectId,ref:'teacher'
     }
 
 })

@@ -5,6 +5,8 @@ var bodyparser = require('body-parser');
 const router = require('./routes/router')
 const cors=require('cors')
 
+
+
 const app =express()
 
 dotenv.config() //hide (secure) the password and the info about the table 
@@ -16,8 +18,10 @@ app.use(cors()) // activate middleware
 
 app.use(bodyparser.urlencoded({     // to support URL-encoded bodies
     extended: true
-  }));
- 
+  }))
+  app.use(bodyparser.json());
+  app.use(express.static(__dirname));
 
+ 
 app.use('',router)
 app.listen(5000,()=>console.log("server is up running"))

@@ -6,11 +6,11 @@ function Navbar() {
         
           <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">
         <div className="navbar-brand" >
-          e-learning
+          E-learning
         </div>
         
         <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-          <div className="input-group">
+          {/* <div className="input-group">
             <input
               className="form-control"
               type="text"
@@ -23,7 +23,7 @@ function Navbar() {
                 <i className="fas fa-search" />
               </button>
             </div>
-          </div>
+          </div> */}
         </form>
         <ul className="navbar-nav ml-auto ml-md-0">
           <li className="nav-item dropdown">

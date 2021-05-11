@@ -20,7 +20,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import AddIcon from '@material-ui/icons/Add';
 import { NavLink } from "react-router-dom";
-import { getCourseByTeacher ,deleteCourse} from "../../services/teacher.service";
+import { getCourseByTeacher ,deleteCourse,deleteFile} from "../../services/teacher.service";
 
 
 
@@ -38,7 +38,7 @@ const useRowStyles = makeStyles({
 
 
 function Row(props) {
-  const { row } = props;
+  const { row , refresh} = props;
   const [open, setOpen] = React.useState(false);
   const classes = useRowStyles();
 
@@ -46,10 +46,40 @@ function Row(props) {
   const deleteHandler=(e)=>{
     let courseId=row._id
     console.log(courseId)
+    //delete chapters files
+// row.chapters.map((item,index)=>{
+//     deleteFile({
+//       path:item.chapterFile.path
+  
+//     })
+  
+//     .then((response) => {
+//       console.log(response);
+//       })
+//     .catch((error) => {
+//         console.log(error);
+//       });
+//     });
+//       //-----delete course image
+//       deleteFile({
+//         path:row.image.path
+    
+//       })
+    
+//       .then((response) => {
+//         console.log(response);
+//         })
+//       .catch((error) => {
+//           console.log(error);
+//         });
+
+
+      //delete course from db
     deleteCourse(courseId)
     .then((response) => {
       console.log(response)
-      window.location.reload();
+      props.onChange(refresh+1);
+      //window.location.reload();
     })
     .catch((error) => {
       console.log(error);
@@ -79,16 +109,16 @@ function Row(props) {
         <TableCell align="center" >10</TableCell>
         <TableCell align="center"> 
                 <div style={{display:"flex"}}>
-                  <NavLink  to={{ pathname: `/teacher/viewCourse/${row._id}`}}>
+                  <NavLink  to={{ pathname: `/teacher/seeCourse/${row._id}`}}>
                   <Button variant="contained"   style={{marginRight:"10px" }}>
                       <VisibilityIcon />     
                   </Button></NavLink>
                   
-                  <NavLink  to={{ pathname: `/teacher/editCourse/${row._id}`}}>
+                  {/* <NavLink  to={{ pathname: `/teacher/editCourse/${row._id}`}}>
                   <Button variant="contained"  color="primary"  style={{marginRight:"10px"}}>
                             <EditIcon />
                         
-                  </Button></NavLink>
+                  </Button></NavLink> */}
                   <Button
                     variant="contained"
                     color="secondary"
@@ -144,9 +174,11 @@ function Row(props) {
 
 
 export default function Courses() {
+  const [refreshKey, setRefreshKey] = React.useState(0);
 
   useEffect(() => {
     let userId="6087f375b0757ab1749fec37";
+
     getCourseByTeacher(userId)
       .then((response) => {
         setData(response)
@@ -158,7 +190,7 @@ export default function Courses() {
   
   
   
-  }, []);
+  }, [refreshKey]);
  
 
   const [data,setData]=useState([])
@@ -215,7 +247,7 @@ export default function Courses() {
         </TableHead>
         <TableBody>
           {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item,index) => (
-            <Row key={index} row={item} />
+            <Row key={index} row={item} refresh={refreshKey}  onChange={refresh =>setRefreshKey(refresh)}/>
           ))}
         </TableBody>
       

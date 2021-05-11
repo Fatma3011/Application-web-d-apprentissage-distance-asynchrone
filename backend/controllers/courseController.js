@@ -1,29 +1,23 @@
 const courseSchema =require('../models/CourseModel')
-
-const upload= require('../middleware/upload')
-
+const teacherSchema =require('../models/TeacherModel')
+const fs =require('fs')
+const path=require('path')
 
 //create new course
-const addCourse=(req,res)=>{  
-
-    // var fields =[];
-    // req.body.chapters.map((obj,index)=>{
-    //     fields=[...fields,{ name: `chapterFile-${index}`, maxCount: 10 }]
-    // })
-    
-    // var uploadMultiple = upload.fields(fields)
-    // uploadMultiple (req, res, function (err) {
-        // if(req.files){
-        //     console.log(req.files)
-        //     console.log("files uploaded")
-        // }
+const addCourse=(req,res)=>{ 
+console.log(req.body);
+console.log(req.file);
+const chapters=JSON.parse(req.body.chapters);
+console.log(chapters);
+const image={name: req.file.filename, path:req.file.path, imageType:req.file.mimetype}
         const course = new courseSchema({
             createdBy:req.body.createdBy,
             title:req.body.title,
             topic:req.body.topic,
             language:req.body.language,
             estimatedTime:req.body.estimatedTime,
-            chapters:req.body.chapters
+            image:image,
+            chapters:chapters,
          })
          course.save()
             .then(data=>{
@@ -32,19 +26,22 @@ const addCourse=(req,res)=>{
             .catch(error=>{
                 res.json(error)
             })
-   // })
+   }
     
     
      
-    }
-     
     
+
       //get all courses of a teacher
        const getAllCourseOfTeacher= async(req, res)=>{
         try {
-            var teacherId = req.params.id;
-        
-                   await courseSchema.find().where('createdBy').in(teacherId).exec((err, records) => {
+              var teacherId = req.params.id;
+            //var teacherId = mongoose.Types.ObjectId(req.params.id);
+
+
+                   await courseSchema.find().where('createdBy').in(teacherId).exec((err, records) => {    //.sort({ createdAt: 'desc' });
+                    //await courseSchema.find({createdBy:teacherId}).exec((err, records) => {
+
                        console.log(records);
        
                        res.status(200).json(records);
@@ -112,10 +109,64 @@ const addCourse=(req,res)=>{
             })
         })
     })
+
+
+
+
+
+    //**************** */
+    
+    const uploadFile=(req,res)=>{  
+  console.log(req.file)
+  res.send(req.file);
+  
+}
+   
+const deleteFile=(req,res)=>{  
+    console.log(req.body.path)
+    fs.unlink(req.body.path, function() {
+        res.send ({
+          status: "200",
+          responseType: "string",
+          response: "success"
+        });
+
+
+    
+ });
+
+}
+const getFile=(req,res)=>{  
+    console.log(req.body.path)
+
+        fs.readFile(req.body.path, (error, data) => {
+            if(error) {
+                throw error;
+            }
+            console.log(data.toString());
+        });
     
 
 
+}
+
+const getImage=(req,res)=>{  
+
+    let file = req.body.path;
+    let fileLocation = path.join(__dirname, '..', '..', 'backend/', file);
+    //res.send({filepath:fileLocation})
+    res.sendFile(`${fileLocation}`);
+//     console.log(req.body.path)
+//    var img = fs.readFileSync(req.body.path)
+//    res.send(img);
+
+}
+
+
+
+
+
     module.exports = {
-         addCourse , getAllCourseOfTeacher,deleteCourse ,getCourse ,editCourse
+    deleteFile, uploadFile, getFile,getImage,addCourse , getAllCourseOfTeacher,deleteCourse ,getCourse ,editCourse
     
     }
