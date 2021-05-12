@@ -4,9 +4,9 @@ const courseSchema = new mongoose.Schema({
     topic:String,
       
     language:String,
-    
+    description:String,
     estimatedTime:String,
-    
+    image:String,
      chapters:[{
             chapterTitle:String,
             chapterTime: String,

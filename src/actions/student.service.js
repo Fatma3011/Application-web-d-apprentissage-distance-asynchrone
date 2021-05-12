@@ -36,3 +36,20 @@ export async function updateProfile(student, idStudent) {
       throw error.response || error.message;
     }
   }
+  //get coursesNotFinished
+  export async function getMyCourses(idStudent) {
+    try {
+      const response = await request({ 
+        method: 'GET',
+        url: `/app/student/mycourses/${idStudent}`,
+        headers: { Authorization: "Bearer " + token }
+
+      })
+      
+      console.log(response)
+  
+      return response
+    } catch (error) {
+      throw (error.response || error.message)
+    }
+  }

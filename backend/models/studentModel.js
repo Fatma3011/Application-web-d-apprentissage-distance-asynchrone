@@ -24,28 +24,27 @@ date: {
     default:Date.now
 },
 
-coursesTaken:[{
-        Name:String, 
-         Image:String,
-        id:String,
-       chapter:String,
-        score:String,
-        
-}],
+
 
    
  
  coursesFinished: [{
-    Name:String, 
-    Image:String,
     id:String,
+    title:String,
+    topic:String, 
+    language:String,
+    estimatedTime:String,
+    image:String,
     score:String,
     certif:String,
     
 }],
 
 coursesNotFinished: [{
-    Name:String, 
+    title:String,
+    topic:String,
+    estimatedTime:String,
+    language:String,
     Image:String,
     id:String,
     score:String,
