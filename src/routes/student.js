@@ -23,25 +23,24 @@ console.log(token)
 return <Signin auth ='false'/>    } 
 
 
-  else if ( token && isTokenExpired(token)===false){
-  return (
-    
-      <Router>
-  <NavBar  auth="false"/>
+    else if ( token && isTokenExpired(token)===false){
+    return (
+      
+        <Router>
+            <NavBar  auth="false"/>
 
-<Switch>
-<Route path={`${url}/home`} exact component={Home} />
-<Route path={`${url}/StudentCourse`} exact component={StudentCourse} />
-<Route path={`${url}/studentcourse/:id`} exact component={StudentCourse} />
+              <Switch>
+              <Route path={`${url}/home`} exact component={Home} />
+              <Route path={`${url}/StudentCourse`} exact component={StudentCourse} />
+              <Route path={`${url}/studentcourse/:id`} exact component={StudentCourse} />
+              <Route path={`${url}/mycourses/:id`} exact  component={MyCourses} />
+              <Route path={`${url}/myprofile/:id`} exact component={MyProfile} />
 
- <Route path={`${url}/mycourses/:id`} exact  component={MyCourses} />
- <Route path={`${url}/myprofile/:id`} exact component={MyProfile} />
+              <Route path={`${url}/myClassement/:id`} exact component={MyClassement} />
 
- <Route path={`${url}/myClassement/:id`} exact component={MyClassement} />
-
-</Switch>
-<Footer/>
-</Router>
+              </Switch>
+            <Footer/>
+        </Router>
   
   );
 }}

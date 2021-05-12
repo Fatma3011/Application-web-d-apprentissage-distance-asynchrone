@@ -82,7 +82,7 @@ function NavBar(props) {
                 
                 <a href="#"
                   className="nav-link getstarted scrollto "
-                  to="/signin"
+                  to="home/signin"
                   activeStyle={{
                     fontWeight: "bold",
                     color: "white",

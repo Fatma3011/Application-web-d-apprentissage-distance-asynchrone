@@ -1,6 +1,5 @@
 import { BrowserRouter as Router,Route,  Switch } from "react-router-dom";
 import { getToken,isTokenExpired } from '../actions/Auth.service';
-import SignPage from "../pages/SignPage";
 
 import Student from  './student'
 import ClientRoute from  './client'
