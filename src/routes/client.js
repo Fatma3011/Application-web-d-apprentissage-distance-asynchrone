@@ -4,7 +4,7 @@ import SignPage from "../pages/SignPage";
 import {isTokenExpired,getToken} from '../actions/Auth.service'
 import NavBar from '.././components/clientComponents/NavBar'
 import Home from "../pages/Home";
-import StudentCourse from "../pages/StudentCourse";
+import Courses from "../components/clientComponents/Courses";
 import Footer from "../components/clientComponents/Footer";
 
 
@@ -12,19 +12,20 @@ import Footer from "../components/clientComponents/Footer";
 
 function ClientRoute() {
   
-    const { url } = useRouteMatch();
-    let token = getToken();
+   const { url } = useRouteMatch();
+  /*   let token = getToken();
   console.log(token)
-    if(!token){
+    if(!token){  */ 
   return (<Router>
     <NavBar />
   <Switch>
-  <Route path={""} exact component={Home} />
-   <Route path="/StudentCourse" exact component={StudentCourse} />
+   <Route path={`${url}/courses`} exact component={Courses} />
    <Route path={["/signup", "/signin", "/forgotpassword"]} exact component={SignPage} />
+   <Route path={`${url}`} exact component={Home} />
+
    </Switch>
    <Footer/>
-   </Router> )  } 
+   </Router> )  
   
   
   

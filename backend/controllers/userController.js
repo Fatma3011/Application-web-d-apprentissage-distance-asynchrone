@@ -2,7 +2,7 @@ const SignUpTemplateCopy= require('../models/studentModel')
 const jwt =require('jsonwebtoken')
 const bcrypt=require('bcryptjs')
 const secret = 'test';
-
+//register
  const signup = async(req,res)=>{
   try{
     const salt=await bcrypt.genSalt(10);
@@ -20,7 +20,7 @@ const secret = 'test';
 }
   catch{res.status(500).json({message:'Somehting went wrong'})}
   };
-
+//login
 const signin = async(req,res)=>{
     //email Validation
     SignUpTemplateCopy.findOne({email:req.body.email})
@@ -32,7 +32,7 @@ const signin = async(req,res)=>{
           if(!valid){res.send({message:"incorrectpassword"})} else {
       //Create and assign a token 
       try{
-      const token=jwt.sign({email:student.email, id:student._id},secret,{expiresIn:"5h"});
+      const token=jwt.sign({userName:student.userName, id:student._id},secret,{expiresIn:"5h"});
       res.status(200).json({message:"loggedin",result:student,token});}
       catch{res.status(500).json({message:'Somehting went wrong'})}
       }})

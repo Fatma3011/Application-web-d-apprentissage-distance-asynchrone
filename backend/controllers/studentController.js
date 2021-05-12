@@ -1,16 +1,20 @@
 const SignUpTemplateCopy= require('../models/studentModel')
 const bcrypt=require('bcryptjs')
 
+//get infos of a student
 
 const getInfo = async(req,res)=>{
     //email Validation
     console.log(req.params.id)
+    console.log("haha")
     SignUpTemplateCopy.findOne({_id:req.params.id})
     .then(student=>{
       res.send(student);
     })
   .catch(error=>res.status(401).json({error}))
 };
+
+//Update infos of a student
 
 const updateProfile= async (req, res)=> {
   let id=req.params.id
@@ -56,18 +60,20 @@ const updateProfile= async (req, res)=> {
          })
     
         };
-  
+  //get all courses Taken by a student
 const getCoursesTaken = async(req,res)=>{
   SignUpTemplateCopy.findOne({_id :req.params.id})
   .then(student=>{res.send(student.coursesTaken);})
 .catch(error=>res.status(401).json({}))
 };
+  //get all courses Taken by a student
 
 const getCoursesNotFinished = async(req,res)=>{
   SignUpTemplateCopy.findOne({_id :req.params.id})
   .then(student=>{res.send(student.coursesNotFinished);})
 .catch(error=>res.status(401).json({}))
 };
+  //get all courses Taken by a student
 
 const getCoursesFinished = async(req,res)=>{
   SignUpTemplateCopy.findOne({_id :req.params.id})

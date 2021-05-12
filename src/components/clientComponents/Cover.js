@@ -11,11 +11,8 @@ function Cover() {
       <div className="col-lg-5"></div>
       <div className="col-lg-2">
       <div class="input-group rounded">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-    aria-describedby="search-addon" />
-  <span class="input-group-text border-0" id="search-addon">
-  <i class="bi bi-search" id="contact"></i>
-  </span>
+    
+  
 </div>  </div>  </div>  
 </div>
 

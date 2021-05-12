@@ -35,8 +35,8 @@ function Signin (props) {
     logIn( registred)
 
     .then(response=>{
-      console.log(response.data.message);
-      if (response.data.message==="notfound")
+      //console.log(response.data.message);
+      if (response.data==="notfound")
       {setError2(true);setError1(false)} 
       if(response.data.message==="incorrectpassword")
       {setError1(true);setError2(false);}
