@@ -52,6 +52,8 @@ function ViewCourse() {
                 title: response.response.title,
                 topic: response.response.topic,
                 language: response.response.language,
+                description: response.response.description,
+
                 estimatedTime: response.response.estimatedTime,
                 image:response.response.image,
                 chapters:response.response.chapters,
@@ -124,7 +126,8 @@ function ViewCourse() {
                       
                     <label  className="courseInfo">Topic : {  courseState.topic }  </label>   
                     <label   className="courseInfo" style={{marginLeft:'50px'}}>Language : { courseState.language }</label>  
-                    <label   className="courseInfo" style={{marginLeft:'50px'}}>Time : { courseState.estimatedTime } hours</label>  
+                    <label   className="courseInfo" style={{marginLeft:'50px'}}>Time : { courseState.estimatedTime } hours</label> <br/> 
+                    <label   className="courseInfo" style={{marginLeft:'50px'}}> { courseState.description!==undefined?courseState.description:'' }</label>  
 
                </div>
 <br/>

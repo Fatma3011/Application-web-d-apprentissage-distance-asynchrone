@@ -13,6 +13,7 @@ const history=useHistory();
         title: "",
         topic: "",
         language: "",
+        description: "",
         estimatedTime: "0",
         chapters:[{
                   chapterTitle: "",
@@ -105,6 +106,7 @@ const history=useHistory();
         fd.append('title', courseState.title)
         fd.append('topic', courseState.topic)
         fd.append('language', courseState.language)
+        fd.append('description', courseState.description)
         fd.append('estimatedTime',courseState.estimatedTime)
         fd.append('chapters',JSON.stringify(courseState.chapters) )
          fd.append('image', image)
@@ -148,6 +150,12 @@ const history=useHistory();
                           // {...register("language", { required: true, maxLength: 20 })}
                           onChange={handleCourseChange}/>
                     {/* {errors.language && <span className="error">This field is required</span>} */}
+
+                    <input type="text" name="description" placeholder="Description" 
+                          value={courseState.description} 
+                          onChange={handleCourseChange}/>
+
+
 
                     <input type="number" name="estimatedTime" placeholder="Estimated time" 
                           value={courseState.estimatedTime}  

@@ -14,6 +14,7 @@ const image={name: req.file.filename, path:req.file.path, imageType:req.file.mim
             createdBy:req.body.createdBy,
             title:req.body.title,
             topic:req.body.topic,
+            description:req.body.description,
             language:req.body.language,
             estimatedTime:req.body.estimatedTime,
             image:image,
