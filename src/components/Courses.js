@@ -27,7 +27,7 @@ const list=[]
         console.log(lengthh);})
 
       
-    });
+    },[]);
     for(let i=0 ; i<lengthh;i+=3){
       if(i===0){
         

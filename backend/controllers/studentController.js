@@ -60,25 +60,14 @@ const updateProfile= async (req, res)=> {
          })
     
         };
-  //get all courses Taken by a student
-const getCoursesTaken = async(req,res)=>{
-  SignUpTemplateCopy.findOne({_id :req.params.id})
-  .then(student=>{res.send(student.coursesTaken);})
-.catch(error=>res.status(401).json({}))
-};
+ 
   //get all courses Taken by a student
 
-const getCoursesNotFinished = async(req,res)=>{
+const getMyCourses = async(req,res)=>{
   SignUpTemplateCopy.findOne({_id :req.params.id})
-  .then(student=>{res.send(student.coursesNotFinished);})
-.catch(error=>res.status(401).json({}))
-};
-  //get all courses Taken by a student
-
-const getCoursesFinished = async(req,res)=>{
-  SignUpTemplateCopy.findOne({_id :req.params.id})
-  .then(student=>{res.send(student.coursesFinished);})
+  .then(student=>{res.send({CoursesNotFinished:student.coursesNotFinished,CoursesFinished:student.coursesFinished});})
 .catch(error=>res.status(401).json({}))
 };
 
-module.exports={getInfo,getCoursesTaken,getCoursesNotFinished,getCoursesFinished,updateProfile};
+
+module.exports={getInfo,getMyCourses,updateProfile};

@@ -4,7 +4,7 @@ import SignPage from "../pages/SignPage";
 import {isTokenExpired,getToken} from '../actions/Auth.service'
 import NavBar from '.././components/clientComponents/NavBar'
 import Home from "../pages/Home";
-import Courses from "../components/clientComponents/Courses";
+import Courses from "../components/Courses";
 import Footer from "../components/clientComponents/Footer";
 
 
