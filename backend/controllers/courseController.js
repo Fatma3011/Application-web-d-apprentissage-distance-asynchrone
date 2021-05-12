@@ -136,21 +136,9 @@ const deleteFile=(req,res)=>{
  });
 
 }
+
+
 const getFile=(req,res)=>{  
-    console.log(req.body.path)
-
-        fs.readFile(req.body.path, (error, data) => {
-            if(error) {
-                throw error;
-            }
-            console.log(data.toString());
-        });
-    
-
-
-}
-
-const getImage=(req,res)=>{  
 
     let file = req.body.path;
     let fileLocation = path.join(__dirname, '..', '..', 'backend/', file);
@@ -167,6 +155,6 @@ const getImage=(req,res)=>{
 
 
     module.exports = {
-    deleteFile, uploadFile, getFile,getImage,addCourse , getAllCourseOfTeacher,deleteCourse ,getCourse ,editCourse
+    deleteFile, uploadFile, getFile,addCourse , getAllCourseOfTeacher,deleteCourse ,getCourse ,editCourse
     
     }

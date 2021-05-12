@@ -12,6 +12,7 @@ import Courses from "../components/teacherComponents/Courses";
 import AddCourse from "../components/teacherComponents/AddCourse";
 import ViewCourse from "../components/teacherComponents/ViewCourse";
 
+
 function Teacher() {
   let url = useRouteMatch();
 
@@ -30,6 +31,7 @@ function Teacher() {
               <Route path={`${url.path}/addCourse`}  exact component={AddCourse} />
               <Route path={`${url.path}/courses`}  exact component={Courses} />
               <Route path={`${url.path}/seeCourse/:idC`}  exact component={ViewCourse} />
+          
 
               {/* <Route path={`${url.path}/editCourse/:id`}  exact component={EditCourse} />
               <Route path={`${url.path}/viewCourse/:id`}  exact component={ViewCourse} /> */} 

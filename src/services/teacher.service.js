@@ -141,28 +141,13 @@ export async function deleteFile(path){
   }
 }
 
-export async function getFile(path){
-  try {
-      const response = await request({
-          method: 'GET',
-          url:"/teacher/getFile",
-          data: path,
-          dataType:'json',
-      })
-         return response
-  } catch (error) {
-      throw (error.response || error.message)
-  }
-}
 
 
-
-
-export async function getImage(imagePath){
+export async function getFile(imagePath){
   try {
       const response = await request({
           method: 'POST',
-          url:"/teacher/getImage",
+          url:"/teacher/getFile",
           data: imagePath,
          responseType: 'blob'  
         //dataType:'json',

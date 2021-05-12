@@ -11,8 +11,7 @@ function Routes() {
       <Switch>
         <Route path="/" exact component={Client} />
         <Route path="/teacher"  component={Teacher} />
-        {/* <Route path={`/readchapter`}  exact component={ReadChapter} /> */}
-
+  
 
 
 

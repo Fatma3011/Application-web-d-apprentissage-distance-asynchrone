@@ -1,8 +1,12 @@
 import React, { useState ,useEffect} from 'react'
 import { updateTeacher, getTeacher } from "../../services/teacher.service";
+import {withRouter ,useHistory} from 'react-router-dom';
 
 function Profile() { 
   let iduser="6087f375b0757ab1749fec37";
+  const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
+   const phoneRegex=/\D/;
+   const history=useHistory();
 
   useEffect(() => {
     let idUser="6087f375b0757ab1749fec37";
@@ -37,7 +41,34 @@ function Profile() {
 
   }, []);
 
-  
+  const [error, setError] = useState(
+    {
+   firstName:true,
+   lastName: true,
+   specialization: true,
+   phone: true,
+   validPhone:true,
+   email:true,
+   validEmail:true,
+   password:true,
+   confirmpassword:true,
+   matchedPassword:true
+  }
+ );
+
+ const errorHandler=()=>{
+
+
+
+
+}
+
+function validation(){
+  if(profile.password!==profile.confirmpassword) setError({...error,matchedPassword:false})
+  return(error.firstName && error.lastName && error.specialization && 
+    error.phone && error.validPhone && error.email && error.validEmail && 
+    error.matchedPassword)
+}
 
   const [profile, setProfile] = useState(
      {
@@ -62,7 +93,7 @@ function Profile() {
 
 
 
-  const [updateState, setupdateState] = useState(false);
+  const [updateState, setupdateState] = useState(true);
 
   const updatehandler=()=>{
     setupdateState(!updateState);
@@ -71,6 +102,7 @@ function Profile() {
 
   const submitHandler = (e) => {
       e.preventDefault() //prevent the default behaviour of a form : redirect to other page
+      if(validation()){
       const update={
             userId:iduser,
             firstName: profile.firstName,
@@ -82,13 +114,13 @@ function Profile() {
           }
       updateTeacher(update)
       .then((response) => {
-        window.location.reload();
-        })
+        history.push('/teacher/profile')           
+      })
       .catch((error) => {
           console.log(error);
         });
   } 
-
+  }
   return (
     <div id="layoutSidenav_content">
     <main >
@@ -115,31 +147,70 @@ function Profile() {
    {  updateState &&  <div>
                 <input type="text" name="firstName" placeholder="First Name"
                value={profile.firstName}
-               onChange={(e)=>{setProfile({...profile ,firstName:e.target.value})}}            
+               onChange={(e)=>{setProfile({...profile ,firstName:e.target.value});
+              e.target.value===""?setError({...error,firstName:false}):setError({...error,firstName:true})
+              }}            
+               />
+
+               {!error.firstName && <span className="error">This field is required</span>} 
 
 
-                />
                 <input type="text" name="lastName" placeholder="Last Name"
-                 onChange={(e)=>{setProfile({...profile ,lastName:e.target.value})}}            
-                 value={profile.lastName}
+                value={profile.lastName}
+                 onChange={(e)=>{setProfile({...profile ,lastName:e.target.value});
+                 e.target.value===""?setError({...error,lastName:false}):setError({...error,lastName:true})
+
+                }}            
                  />
+               {!error.lastName && <span className="error">This field is required</span>} 
+
+
                 <input type="text" name="specialization" placeholder="Specialization"
-                 onChange={(e)=>{setProfile({...profile ,specialization:e.target.value})}}       
-                 value={profile.specialization}
+                                 value={profile.specialization}
+                 onChange={(e)=>{setProfile({...profile ,specialization:e.target.value});
+                 e.target.value===""?setError({...error,specialization:false}):setError({...error,specialization:true})
+                }}       
                  />
+               {!error.specialization && <span className="error">This field is required</span>} 
+
+
                 <input type="text" name="phone" placeholder="Phone"
-                 onChange={(e)=>{setProfile({...profile ,phone:e.target.value})}}
-                 value={profile.phone}/>
+                value={profile.phone}
+                 onChange={(e)=>{setProfile({...profile ,phone:e.target.value});
+                 e.target.value===""?setError({...error,phone:false}):setError({...error,phone:true})
+                phoneRegex.test(e.target.value)? setError({...error,validPhone:true}):setError({...error,validPhone:false})
+
+                }}
+                 />
+
+              {!error.phone && <span className="error">This field is required</span>} 
+              {!error.validPhone && <span className="error">This field is invalid</span>} 
+
+
+
                 <input type="email" name="email" placeholder="Email"
-                  onChange={(e)=>{setProfile({...profile ,email:e.target.value})}}
-                  value={profile.email}/>
+                  value={profile.email}
+                  onChange={(e)=>{setProfile({...profile ,email:e.target.value});
+                  e.target.value===""?setError({...error,email:false}):setError({...error,email:true})
+                  emailRegex.test(e.target.value)? setError({...error,validEmail:true}):setError({...error,validEmail:false})
+
+                }}
+                  />
+
+              {!error.email && <span className="error">This field is required</span>} 
+              {!error.validEmail && <span className="error">This field is invalid</span>} 
+
+
                 <h5 className="fs-subtitle">Change Password</h5>
                 <input type="password" name="password" placeholder="Password"
-                   onChange={(e)=>{setProfile({...profile ,password:e.target.value})}}
+                   onChange={(e)=>{setProfile({...profile ,password:e.target.value});}}
                    value={profile.password}/>
                 <input type="password" name="confirmpassword" placeholder="Confirm Password"
-                      onChange={(e)=>{setProfile({...profile, confirmpassword:e.target.value})}}
+                      onChange={(e)=>{setProfile({...profile, confirmpassword:e.target.value});}}
                       value={profile.confirmpassword}/>
+
+                      {!error.matchedPassword && <span className="error">Passwords doesn't match</span>} 
+
                 <input type="submit" name="submit" className="submit action-button" value="save" />            
                 </div>
               
@@ -157,4 +228,4 @@ function Profile() {
   );
 }
 
-export default Profile
+export default withRouter(Profile)

@@ -235,7 +235,7 @@ const handlePdfFileChange=(e)=>{
             <div style={{display: 'flex',flexDirection:'row', alignItems:'flex-start', marginLeft:'-13px'}}>
             
             <TextField 
-                      fullWidth={true}   label="Question" Question
+                      fullWidth={true}   label="Question" 
                       rowsMax={4} 
                       value={ques.questionText} 
                       onChange={(e)=>{changeQuestion(e.target.value,i)}}
