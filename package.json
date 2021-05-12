@@ -11,6 +11,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "formik": "^2.2.6",
+    "html-react-parser": "^1.2.6",
     "jwt-decode": "^3.1.2",
     "mongoose": "^5.12.4",
     "react": "^17.0.1",

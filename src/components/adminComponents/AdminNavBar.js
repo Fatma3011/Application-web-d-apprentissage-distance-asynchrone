@@ -1,5 +1,5 @@
 import React from "react";
-
+import {userService} from '../../services/auth.header'
 function AdminNavBar() {
 
   return (
@@ -45,7 +45,7 @@ function AdminNavBar() {
                 My profile
               </a>
               <div className="dropdown-divider" />
-              <a className="dropdown-item" href="login.html">
+              <a className="dropdown-item" href="" onClick={()=>userService.logout ()}>
                 Logout
               </a>
             </div>

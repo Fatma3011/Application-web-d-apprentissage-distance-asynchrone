@@ -21,18 +21,12 @@ function Client() {
  
             <Router>
                 <NavBar/>
-              <Switch>
-                <Route path={`${url}/signin`} exact component={SignInPage } />
-                <Route path={`${url}/signup`} exact component={SignUpPage} />
-                <Route
-                  path={`${url}/forgotpassword`}
-                  exact
-                  component={ForgotPassWordPage }
-                />
-                <Route path="" exact component={Home} />
-
-                
-              </Switch>
+                <Switch>
+                  <Route path={`${url}/signin`} exact component={SignInPage } />
+                  <Route path={`${url}/signup`} exact component={SignUpPage} />
+                  <Route path={`${url}/forgotpassword`} exact component={ForgotPassWordPage }/>
+                  <Route path={`${url}`} exact component={Home} />
+                </Switch>
             </Router>
           
   );

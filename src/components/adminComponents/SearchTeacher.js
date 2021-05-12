@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { useHistory } from "react-router-dom";
-import { deleteTeacher, getTeachers } from "../../services/admin.service";
-import { useRouteMatch } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { deleteTeacher, getTeachers,searchTeacher } from "../../services/admin.service";
+import {
+  BrowserRouter as Router,
+  useRouteMatch,
+} from "react-router-dom";
 
-function TeacherList() {
+function Search() {
   const c = useRouteMatch();
+  const {teacherName}=useParams()
   const history = useHistory();
   const [clicked, setClicked] = useState(false);
+  const [result, setResult] = useState(true);
+
   const [data, setData] = useState([
     {
       firstname: "",
@@ -18,20 +24,9 @@ function TeacherList() {
     },
   ]);
 
-  const initialValues = {
-    firstname: "",
-  };
-  let teacher ={firstname:""}
-
-  function onSubmit(values) {
-     teacher.firstname= values.firstname
-     const c=values.firstname;
-    window.location=`/admin/searchforteacher/${c}`
-  }
-
   //redirect
-  const redirectToAdd = () => {
-    history.push("/admin/addteacher");
+  const redirectTeachers = () => {
+    history.push("/admin/teacherlist");
   };
 
   //Delete Teacher
@@ -50,59 +45,48 @@ function TeacherList() {
   //DidMount behavior
 
   useEffect(() => {
- 
-      getTeachers()
-      .then((response) => {
-        setData(response);
+    //call to service
+    console.log("one")
+      searchTeacher(teacherName)
+      .then((response)=>{
+        
+        if(response.length==0){ 
+          setResult(false)}
+       else{          
+         
+         setResult(true)
+       }
+       setData(response);
       })
-      .catch((error) => {
+      .catch((error)=>{
         console.log(error);
-      });}
-    
+      })
+    }
   , [clicked]);
-
-  const formik = useFormik({ initialValues, onSubmit});
 
   return (
     <div id="layoutSidenav_content">
       <main>
         <div className="container-fluid">
+          <br/>
+              <h3>
+                <a href="" onClick={redirectTeachers}>
+                  <i className="fas fa-arrow-circle-left"></i>
+                </a>
+              </h3>
           <div className="row">
-            <div class="col-lg-9">
+            <div className="col-lg-9">
               {" "}
-              <h1 className="mt-4">Teachers List</h1>
+              <h1 className="mt-4">Search for {teacherName}</h1>
             </div>
             <div className="col-lg-3">
-              <br />
-              <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" 
-                    onSubmit={formik.handleSubmit}
-                    >
-                <div className="input-group">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="firstname"
-                    placeholder="Search By Name..."
-                    aria-label="Search"
-                    aria-describedby="basic-addon2"
-                    value={formik.values.firstname}
-                  onChange={formik.handleChange}
-                  />
-                  <div className="input-group-append">
-                    <button className="btn btn-primary" type="submit"
-                  name="submit">
-                      <i className="fas fa-search" />
-                    </button>
-                  </div>
-                </div>
-              </form>
+              <br/>
             </div>
           </div>
 
-          <button type="button" onClick={redirectToAdd} class="btn" id="kk">
-            Add Teacher
-          </button>
-          <br />
+
+          
+          
           <br />
           <div className="card mb-4">
             <div className="card-header">
@@ -111,6 +95,7 @@ function TeacherList() {
             </div>
             <div className="card-body">
               <div className="table-responsive">
+                {result===true ? 
                 <table
                   className="table table-bordered"
                   id="dataTable"
@@ -140,7 +125,7 @@ function TeacherList() {
                     </tr>
                   </tfoot>
                   <tbody>
-                    {data.map((item, index) => (
+                    {data.map(item => (
                       <tr>
                         <td>{item.firstname}</td>
                         <td>{item.lastname}</td>
@@ -157,6 +142,7 @@ function TeacherList() {
                     ))}
                   </tbody>
                 </table>
+                : <div>no results</div> }
               </div>
             </div>
           </div>
@@ -166,4 +152,4 @@ function TeacherList() {
   );
 }
 
-export default TeacherList;
+export default Search;

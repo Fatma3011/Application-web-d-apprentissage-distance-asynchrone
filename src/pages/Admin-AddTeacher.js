@@ -5,11 +5,7 @@ import AddTeacher from "../components/adminComponents/AddTeacher";
 
 function AdminAddTeacher() {
   return (
-    <>
-      
           <AddTeacher />
-        
-    </>
   );
 }
 

@@ -2,12 +2,11 @@ import React from 'react'
 
 function SideNav() {
     return (
-      <div id="fixe">
-          <div id="layoutSidenav" >
+   
     <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
     
-      <br/><br/><br/>
+      <br/><br/>
         <div className="sb-sidenav-menu ">
           <div className="nav">
             <a className="nav-link" href="/admin/profile">
@@ -55,12 +54,10 @@ function SideNav() {
           </div>
         </div>
         <br/>
-                    <br/><br/><br/><br/>
-                    <br/><br/><br/><br/>
-                    <br/>
+              
                     
                    
-        </nav></div></div>
+        </nav>
       </div>
     );
 }

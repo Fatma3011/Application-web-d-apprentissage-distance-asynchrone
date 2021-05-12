@@ -55,7 +55,6 @@ function AddTeacher() {
   const formik = useFormik({ initialValues, onSubmit, validationSchema });
 
   return (
-    <div>
       <div id="layoutSidenav_content">
         <main>
           <div className="col-md-offset-3">
@@ -155,7 +154,7 @@ function AddTeacher() {
           </div>
         </main>
       </div>
-    </div>
+ 
   );
 }
 

@@ -1,14 +1,8 @@
-import React from 'react'
+import React from "react";
 import Profile from "../components/adminComponents/Profile";
 
 function AdminProfile() {
-    return (
-        <>
-          
-                    <Profile/>
-               
-        </>
-    )
+  return <Profile />;
 }
 
-export default AdminProfile
+export default AdminProfile;

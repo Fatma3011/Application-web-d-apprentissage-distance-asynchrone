@@ -3,12 +3,9 @@ import StudentList from '../components/adminComponents/StudentList';
 
 function AdminStudent() {
     return (
-        <div>
-     
      
           <StudentList />
-        
-    </div>
+
     )
 }
 

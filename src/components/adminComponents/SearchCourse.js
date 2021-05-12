@@ -1,24 +1,18 @@
-import React , {useState, useEffect} from "react";
-import { useFormik } from "formik";
-import { deleteCourse, getCourses } from "../../services/admin.service";
-import { useHistory } from "react-router-dom";  
 
-function CourseList() {
+import React , {useState, useEffect} from "react";
+import { deleteCourse, searchCourse } from "../../services/admin.service";
+import { useHistory, useParams } from "react-router-dom";  
+
+
+function SearchCourse() {
+    const {courseTitle}=useParams()
   const history = useHistory();
   const [clicked, setClicked] = useState(false);
   const [data, setData] = useState([{},]);
-  const initialValues = {
-    title: "",
-  };
-  let course ={title:""}
+  const [result, setResult] = useState(true);
 
-  function onSubmit(values) {
-    course.title= values.title
-     const c=values.title;
-    window.location=`/admin/searchcourse/${c}`
-  }
-  const redirectToChapter = (coursename , id) => {
-    history.push(`/admin/coursechapters/${coursename}/${id}`);
+  const redirectCourses = () => {
+    history.push(`/admin/courselist`);
   };
   //Delete Teacher 
   const handleDelete = (id) => {
@@ -36,55 +30,35 @@ function CourseList() {
   //DidMount behavior
   useEffect(() => {
     //call to service
-    getCourses()
+    searchCourse(courseTitle)
       .then((response) => {
+          console.log(response)
+        if(response.length==0){ 
+            setResult(false)}
+         else{          
+           
+           setResult(true)
+         }
         setData(response);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [clicked]);
-  const formik = useFormik({ initialValues, onSubmit});
 
   return (
    
       <div id="layoutSidenav_content">
         <main>
           <div className="container-fluid">
-            {/* <h1 className="mt-4">Courses List</h1> */}
-            <div className="row">
-            <div class="col-lg-9">
-              {" "}
-              <h1 className="mt-4">Courses List</h1>
-            </div>
-            <div className="col-lg-3">
-              <br />
-              <form 
-                    className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" 
-                    onSubmit={formik.handleSubmit}
-                    >
-                <div className="input-group">
-                  <input
-                    className="form-control"
-                    type="text"
-                    name="title"
-                    placeholder="Search By Title..."
-                    aria-label="Search"
-                    aria-describedby="basic-addon2"
-                    value={formik.values.title}
-                  onChange={formik.handleChange}
-                  />
-                  <div className="input-group-append">
-                    <button className="btn btn-primary" type="submit"
-                  name="submit">
-                      <i className="fas fa-search" />
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-            <br />
+              <br/>
+          <h3>
+                <a href="" onClick={redirectCourses}>
+                  <i className="fas fa-arrow-circle-left"></i>
+                </a>
+              </h3>
+          <h1 className="mt-4">Search for {courseTitle}</h1>
+
             <br />
             <div className="card mb-4">
               <div className="card-header">
@@ -93,6 +67,7 @@ function CourseList() {
               </div>
               <div className="card-body">
                 <div className="table-responsive">
+                {result===true ? 
                   <table
                     className="table table-bordered"
                     id="dataTable"
@@ -134,7 +109,7 @@ function CourseList() {
                           <td>{item.estimatedTime} hours</td>
                           <td>
                             <a href="" 
-                            onClick={() => redirectToChapter(item.title , item._id)}
+                            onClick={() => redirectCourses(item.title , item._id)}
                             >
                             <i class="far fa-folder-open"></i>
                             </a>
@@ -150,6 +125,7 @@ function CourseList() {
                      
                     </tbody>
                   </table>
+                     : <div>no results</div> }
                 </div>
               </div>
             </div>
@@ -159,4 +135,4 @@ function CourseList() {
   );
 }
 
-export default CourseList;
+export default SearchCourse;

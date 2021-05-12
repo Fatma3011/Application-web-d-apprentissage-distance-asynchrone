@@ -6,14 +6,10 @@ import TeacherList from "../components/adminComponents/TeacherList";
 
 function AdminTeacher() {
   return (
-    <div>
-      
-          <br />
-          <br />
+ 
           <TeacherList/>
           
-        
-    </div>
+   
   );
 }
 

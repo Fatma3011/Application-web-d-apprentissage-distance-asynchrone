@@ -4,34 +4,27 @@ import { useHistory, useParams } from "react-router-dom";
 import { updateProfile } from "../../services/admin.service";
 import * as Yup from "yup";
 
-function EditProfile() {
+function EditName() {
   const { id, ch } = useParams();
   const history = useHistory();
   const redirectToAdd = () => {
     history.push("/admin/profile");
   };
-  
   const initialValues = {
-    npass: "",
-      cpass:""
+    firstName: "",
+    lastName: "",
   };
   const validationSchema = Yup.object({
-    npass: Yup.string().required("Required").min(6),
-    cpass: Yup.mixed()
-      .test("match", "Passwords do not match", function (value) {
-        return value === this.parent.npass;
-      })
-      .required("Password confirm is required"),
+    firstName: Yup.string().required("Required"),
+    lastName: Yup.string().required("Required"),
   });
   function onSubmit(values) {
-
+    console.log("pre")
     const registred = {
-
-      npass: values.npass,
-      cpass: values.cpass,
-     
+      firstName: values.firstName,
+      lastName: values.lastName,
     }
-
+console.log("pre2")
     updateProfile(registred, id , ch)
       .then(() => {
         window.location = "/admin/profile";
@@ -52,26 +45,27 @@ function EditProfile() {
                 <br />
                 
                     <input
-                      type="password"
-                      name="npass"
-                      placeholder="New Password"
-                      value={formik.values.npass}
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={formik.values.firstName}
                       onChange={formik.handleChange}
                     />
-                    {formik.touched.npass && formik.errors.npass ? (
-                  <div className="error">{formik.errors.npass}</div>
+                    {formik.touched.firstName && formik.errors.firstName ? (
+                  <div className="error">{formik.errors.firstName}</div>
                 ) : null}
+                        
                     <input
-                      type="password"
-                      name="cpass"
-                      placeholder="Confirm Password"
-                      value={formik.values.cpass}
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={formik.values.lastName}
                       onChange={formik.handleChange}
                     />
-                    {formik.touched.cpass && formik.errors.cpass ? (
-                  <div className="error">{formik.errors.cpass}</div>
+                    {formik.touched.lastName && formik.errors.lastName ? (
+                  <div className="error">{formik.errors.lastName}</div>
                 ) : null}
-                
+                  
 
                 <input
                   type="submit"
@@ -94,4 +88,4 @@ function EditProfile() {
   );
 }
 
-export default EditProfile;
+export default EditName;

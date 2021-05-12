@@ -37,9 +37,7 @@ function ChaptersOfCourse() {
   }, [clicked]);
 
   return (
-    <div>
-      <br />
-      <br />
+ 
       <div id="layoutSidenav_content">
         <main>
           <div className="container-fluid">
@@ -111,7 +109,7 @@ function ChaptersOfCourse() {
           </div>
         </main>
       </div>
-    </div>
+    
   );
 }
 
