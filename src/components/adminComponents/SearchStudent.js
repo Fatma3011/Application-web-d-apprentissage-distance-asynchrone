@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react";
 import { deleteStudent, SearchStudents } from "../../services/admin.service";
-import { useFormik } from "formik";
-import { useHistory, useParams } from "react-router";
+
+import { useHistory, useParams } from "react-router-dom";
 
 function SearchStudent() {
     const history=useHistory()
