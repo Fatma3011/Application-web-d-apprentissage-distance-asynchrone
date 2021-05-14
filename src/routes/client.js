@@ -4,7 +4,6 @@ import SignPage from "../pages/SignPage";
 import {isTokenExpired,getToken} from '../actions/Auth.service'
 import NavBar from '.././components/clientComponents/NavBar'
 import Home from "../pages/Home";
-import Courses from "../components/Courses";
 import Footer from "../components/clientComponents/Footer";
 
 
@@ -19,7 +18,6 @@ function ClientRoute() {
   return (<Router>
     <NavBar />
   <Switch>
-   <Route path={`${url}/courses`} exact component={Courses} />
    <Route path={["/signup", "/signin", "/forgotpassword"]} exact component={SignPage} />
    <Route path={`${url}`} exact component={Home} />
 

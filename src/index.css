@@ -2016,3 +2016,9 @@ color: #dddddd;
   box-sizing: border-box;
   border: 1px solid #ccc;
 }
+.topic{
+  color:#0f3361;
+}
+.text{color:#0f3361;
+}
+.description2{font-size: 9px;}

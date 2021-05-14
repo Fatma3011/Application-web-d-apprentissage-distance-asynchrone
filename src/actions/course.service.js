@@ -14,3 +14,19 @@ export async function getAllCourses() {
       throw (error.response || error.message)
     }
   }
+export async function getImg(imgPath){
+    getFile({
+    path:imgPath
+
+
+   })
+    .then((response) => {
+      console.log(response.data);
+      setImageState(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  
+  }

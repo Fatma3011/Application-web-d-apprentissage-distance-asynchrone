@@ -14,16 +14,8 @@ const list=[]
     getAllCourses()
     .then(response=>{console.log(response);
       
-       setData(response.data)
-   /*     {data.map((item,index)=>{if(index%3===0){console.log('%3=0'); console.log(item.title);}
-      else if (index % 3===1){console.log('%3=1');
-    console.log(item.title);}
-      else if (index % 3===2){console.log('%3=2'); console.log(item.title);}
-       else if (index%3==1){console.log(item.title+"bb")}
-        else if (index%3==2){console.log(item.title+"cc")}
-      })} */
-        let k=response.data.length;
-        setLengthh(k);
+       setData(response.data);
+         setLengthh(response.data.length);
         console.log(lengthh);})
 
       
@@ -31,8 +23,14 @@ const list=[]
     for(let i=0 ; i<lengthh;i+=3){
       if(i===0){
         
-  list.push(<div className="carousel-item active "><Carousel1  title1={data[i].title} title2={data[i+1].title}  title3={data[i+2].title}  /></div>);}
-  else{list.push(<div className="carousel-item "><Carousel1   title1={data[i].title} title2={data[i+1].title}  title3={data[i+2].title} /></div>)}
+  if (lengthh===1 )
+  {list.push(<div className="carousel-item active "><Carousel1  first={data[i]}   /></div>);}
+  if (lengthh===2 )
+  {list.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}   /></div>);}
+  else {list.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}  third={data[i+2]}  /></div>);}
+}
+
+  else{list.push(<div className="carousel-item "><Carousel1   first={data[i]} second={(i+1<lengthh)?data[i+1]:null}  third={(i+2<lengthh)?data[i+2]:null} /></div>)}
   }
      return (
 

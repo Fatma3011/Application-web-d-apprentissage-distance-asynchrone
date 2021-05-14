@@ -128,7 +128,7 @@ console.log(data)
   <div className="row" data-aos="fade-up" data-aos-delay={100}>
     <div className="col-lg-12 d-flex justify-content-center">
       <ul id="portfolio-flters">
-        <li data-filter="*" className="filter-active">Not Finished Courses </li> 
+        <li data-filter="*" className="filter-active"> Finished Courses </li> 
       
      
        

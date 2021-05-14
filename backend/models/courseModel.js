@@ -6,7 +6,10 @@ const courseSchema = new mongoose.Schema({
     language:String,
     description:String,
     estimatedTime:String,
-    image:String,
+    image :{name:String,
+      path:String,
+       imageType:String,
+} ,
      chapters:[{
             chapterTitle:String,
             chapterTime: String,
