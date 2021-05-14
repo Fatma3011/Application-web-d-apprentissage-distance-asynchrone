@@ -1,18 +1,22 @@
 const mongoose = require("mongoose");
+const { string } = require("yup/lib/locale");
 
 const courseSchema = new mongoose.Schema({
   title: String,
   topic: String,
 
   language: String,
-
+  description : String,
   estimatedTime: String,
-
+  image :{name:String,
+          path:String,
+           imageType:String,
+    } ,
   chapters: [
     {
       chapterTitle: String,
       chapterTime: String,
-      chapterFile: String,
+      chapterFile:{ name : String, path : String},
       points: String,
       quiz: [
         {

@@ -5,10 +5,13 @@ const path=require('path')
 
 //create new course
 const addCourse=(req,res)=>{ 
-console.log(req.body);
-console.log(req.file);
-const chapters=JSON.parse(req.body.chapters);
-console.log(chapters);
+    console.log("debut back")
+    console.log(req.body);
+    console.log(req.file);
+    const chapters=JSON.parse(req.body.chapters);
+    console.log(chapters);
+    console.log("debut2 back")
+
 const image={name: req.file.filename, path:req.file.path, imageType:req.file.mimetype}
         const course = new courseSchema({
             createdBy:req.body.createdBy,
@@ -20,6 +23,7 @@ const image={name: req.file.filename, path:req.file.path, imageType:req.file.mim
             image:image,
             chapters:chapters,
          })
+         console.log(chapters)
          course.save()
             .then(data=>{
                 res.json(data)

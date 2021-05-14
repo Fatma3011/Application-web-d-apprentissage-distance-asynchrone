@@ -1,16 +1,6 @@
 import decode from 'jwt-decode';
-//  function CurrentUser() {
-//     let currentUser='';
-//     let user = getToken()
-//     if (user && user.token) {
-//         currentUser =user.userRole
-//         return currentUser;
 
-//     } else {
-//         return "user non specifiee"
-//     }
-// }
-// export default CurrentUser
+// l fichier hadha nrmlmnt arij 3amla les fcts ali fih  ==> bch yetna7a
 
 function loggedIn() {
     const token = this.getToken()

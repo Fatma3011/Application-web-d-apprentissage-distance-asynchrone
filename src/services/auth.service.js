@@ -1,6 +1,11 @@
 
 import request from '../utils/admin.util'
 
+
+//login pour l'admin (bch yetna7a l fichier hadhaaa )
+
+
+
  async function logIn(login){
         try {
             const response = await request({
@@ -16,14 +21,5 @@ import request from '../utils/admin.util'
             throw (error.response || error.message)
         }
     }
-    
-    function logOut() {
-        localStorage.removeItem("user");
-      }
 
-      function   getCurrentUser() {
-        return JSON.parse(localStorage.getItem('user'));;
-      }
-    
-    //   module.export={logIn, logOut, getCurrentUser}
-      export const AuthService = {logIn:logIn, logOut:logOut, getCurrentUser:getCurrentUser}
+      export const AuthService = {logIn:logIn,}
