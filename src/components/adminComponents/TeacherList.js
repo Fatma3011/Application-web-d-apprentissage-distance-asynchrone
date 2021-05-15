@@ -3,6 +3,9 @@ import { useFormik } from "formik";
 import { useHistory } from "react-router-dom";
 import { deleteTeacher, getTeachers } from "../../services/admin.service";
 import { useRouteMatch } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function TeacherList() {
   const c = useRouteMatch();
@@ -99,9 +102,18 @@ function TeacherList() {
             </div>
           </div>
 
-          <button type="button" onClick={redirectToAdd} class="btn" id="kk">
+          {/* <button type="button" onClick={redirectToAdd} class="btn" id="kk">
             Add Teacher
-          </button>
+          </button> */}
+          <Button
+                      variant="contained"
+                      color="default"
+                      className="float-lg-right"
+                      startIcon={<AddIcon />}
+                      onClick={redirectToAdd}
+                    >        
+                    Add Teacher
+                    </Button>
           <br />
           <br />
           <div className="card mb-4">
@@ -152,6 +164,15 @@ function TeacherList() {
                           <a href="#" onClick={() => handleDelete(item._id)}>
                             <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
+                          {/* <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDelete(item._id)}
+                  >
+                  <DeleteIcon />
+                  </Button> */}
+                  
+
                         </td>
                       </tr>
                     ))}
