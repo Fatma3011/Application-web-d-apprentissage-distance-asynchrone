@@ -31,7 +31,7 @@ return <Signin auth ='false'/>    }
 
 <Switch>
 <Route path={`${url}/home`} exact component={Home} />
-<Route path={`${url}/course/:id`} exact component={StudentCourse} />
+<Route path={`${url}/course/:idStudent/:idCourse/`} exact component={StudentCourse} />
 
  <Route path={`${url}/mycourses/:id`} exact  component={MyCourses} />
  <Route path={`${url}/myprofile/:id`} exact component={MyProfile} />

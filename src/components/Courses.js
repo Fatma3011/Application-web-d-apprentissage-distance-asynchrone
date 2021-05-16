@@ -25,9 +25,9 @@ const list=[]
         
   if (lengthh===1 )
   {list.push(<div className="carousel-item active "><Carousel1  first={data[i]}   /></div>);}
-  if (lengthh===2 )
+  else if (lengthh===2 )
   {list.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}   /></div>);}
-  else {list.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}  third={data[i+2]}  /></div>);}
+  else if(lengthh===3) {list.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}  third={data[i+2]}  /></div>);}
 }
 
   else{list.push(<div className="carousel-item "><Carousel1   first={data[i]} second={(i+1<lengthh)?data[i+1]:null}  third={(i+2<lengthh)?data[i+2]:null} /></div>)}

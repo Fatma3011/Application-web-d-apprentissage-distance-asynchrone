@@ -1,6 +1,58 @@
-import React from 'react'
+import React,{useState,useEffect}from 'react'
+import {useParams } from "react-router-dom";
+
+import { getNomchapter,getCourse} from '../../actions/student.service';
 
 function Course(props ) {
+  
+
+  useEffect(async() =>  {
+    console.log(idStudent);
+ 
+    getNomchapter(idStudent,idCourse)
+    .then(response=>{console.log("getnomchapter");
+      console.log(response);
+      
+      console.log(response.data[0].coursesNotFinished);
+      for(let i=0;i<response.data[0].coursesNotFinished.length;i++){
+        if (response.data[0].coursesNotFinished[i]._id===idCourse){
+          console.log(response.data[0].coursesNotFinished[i].chapter._id);
+        setIdchapter(response.data[0].coursesNotFinished[i].chapter._id);
+        console.log(idchapter);
+        setScore(response.data[0].coursesNotFinished[i].score);
+        console.log(score);
+      }}
+      
+    //  getCourse(idCourse,idchapter)
+    //  .then(response=>{console.log("getchapter");
+    //    console.log(response);
+    //    setLengthh(response.data.chapters.length);
+    //    for(let i=0;i<response.data.chapters.length;i++)
+    //     {listChapters.push(response.data.chapters[i].title);
+    //      if (response.data.chapters[i]._id===idchapter){
+    //        setChapter(response.data.chapters[i]);
+    //        console.log("arijarijarij");
+    //        setQuiz(response.data.chapters[i].quiz);
+    //        setDescription(response.data.description)}}
+    //  console.log(chapter);
+    //  console.log(description);console.log(quiz)
+    //  })
+    // .catch()
+  } )
+    .catch(console.log("ARRIIIIIIIIJJJJJJ"))
+
+  }
+,[])
+
+
+const {idStudent,idCourse} = useParams();
+const [idchapter, setIdchapter] = useState("");
+const [chapter, setChapter] = useState({});
+const [description, setDescription] = useState("");
+const [quiz, setQuiz] = useState([{}]);
+const [score, setScore] = useState();
+const [lengthh, setLengthh] = useState();
+const listChapters=[];
     return (
         <>
         
@@ -15,7 +67,7 @@ function Course(props ) {
       <div className="container">
         <div className="section-title" data-aos="fade-left">
           <h2>Our Courses</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>{description? description :"rien"}</p>
         </div>
        </div>
     </section> </main> </div></section>
@@ -24,9 +76,11 @@ function Course(props ) {
       <div className="col-lg-2">
         <h1 className="my-4">Course Plan</h1>
         <div  id="plan" className="list-group">
-        <a href="#" className="list-group-item active">Category 1</a>
-          <a href="#" className="list-group-item">Category 2</a>
-          <a href="#" className="list-group-item">Category 3</a>
+         {listChapters.map((index,item)=>(<>
+        <a href="#" className="list-group-item active">{item}</a>
+          <a href="#" className="list-group-item">{quiz}</a></>
+          ))}
+          
         </div>
       </div>
     

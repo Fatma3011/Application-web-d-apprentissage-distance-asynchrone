@@ -1,7 +1,70 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
+import {getFile} from '../../actions/course.service'
 
 function Carousel1(props) {
-    return (     
+  const [firstimageState, setFirstImageState] = useState("");
+  const [secondimageState, setSecondImageState] = useState("");
+  const [thirdimageState, setThirdImageState] = useState("");
+
+
+function getImage(path){
+  getFile({
+  path:path
+ })
+  .then((response) => {
+    console.log(response.data);
+    setFirstImageState(response.data)
+  })
+  .catch((error) => {
+    console.log(error);
+  });}
+  
+
+  function getImage2(path){
+    getFile({
+    path:path
+  
+  
+   })
+    .then((response) => {
+      console.log(response.data);
+      setSecondImageState(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });}
+   
+    function getImage3(path){
+      getFile({
+      path:path
+    
+    
+     })
+      .then((response) => {
+        console.log(response.data);
+        setThirdImageState(response.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });}
+
+useEffect(() => { 
+        if(props.first){
+          const path1=props.first.image.path;
+        
+getImage(path1)}
+if(props.second){
+  const path2=props.second.image.path;
+
+getImage2(path2)}
+if(props.third){
+  const path3=props.third.image.path;
+
+getImage3(path3)}
+
+      },[])
+  
+return (     
    
       <div className="row">
 
@@ -9,7 +72,10 @@ function Carousel1(props) {
       <div className="col-md-4 mb-3">
           
       <div className="card">
-        <img className="img-fluid" alt="100%x280" src=""/>
+      {
+                          firstimageState?(<img alt="100%x280" className="img-fluid" id="image" src={URL.createObjectURL(firstimageState)} width="100%" heigth="100%"/>):''
+
+                }  
              
         <div className="card-body">
 
@@ -30,13 +96,16 @@ function Carousel1(props) {
     <div className="col-md-4 mb-3">
   
       <div className="card">
-        <img className="img-fluid" alt="100%x280" src="https:images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjMyMDc0fQ&s=42b2d9ae6feb9c4ff98b9133addfb698" />
-        <div className="card-body">
+      {
+                          secondimageState?(<img alt="100%x280" className="img-fluid" id="image" src={URL.createObjectURL(secondimageState)} width="100%" heigth="100%"/>):''
+
+                }          <div className="card-body">
         <h4 className="card-title">{props.second.title}</h4>
           <p className="card-text topic">{props.second.topic}</p>
           <p className="card-text description">{props.second.description}</p>     
            <p className="card-text description2"><b className="text"> Estmated Time:</b><b>{props.second.estimatedTime}Hours</b><br/>
            <b className="text"> language:</b>{props.second.language}</p>
+           <a href="#" className="btn btn-style-1 ">start</a>
 
         </div>
       </div>
@@ -47,14 +116,17 @@ function Carousel1(props) {
    
 
       <div className="card">
-        <img className="img-fluid" alt="100%x280" src="https:images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjMyMDc0fQ&s=3d2e8a2039c06dd26db977fe6ac6186a" />
-        <div className="card-body">
+      {
+                          thirdimageState?(<img alt="100%x280" className="img-fluid" id="image" src={URL.createObjectURL(thirdimageState)} width="100%" heigth="100%"/>):''
+
+                }          <div className="card-body">
         <h4 className="card-title">{props.third.title}</h4>
           <p className="card-text topic">{props.third.topic}</p>
           <p className="card-text description">{props.third.description}</p>     
            <p className="card-text description2"><b className="text"> Estmated Time:</b><b>{props.third.estimatedTime}Hours</b><br/>
            <b className="text"> language:</b>{props.third.language}</p>
 
+           <a href="#" className="btn btn-style-1 ">start</a>
 
         </div>
       </div>

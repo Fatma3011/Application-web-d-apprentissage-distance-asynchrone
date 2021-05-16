@@ -1,7 +1,8 @@
 const courseSchema =require('../models/CourseModel')
+const path=require('path')
+
 const getAllCourses = async(req, res)=>{
     console.log("debut")
-    
      courseSchema.find()
    .then(records=>{
                    console.log(records);
@@ -12,4 +13,18 @@ const getAllCourses = async(req, res)=>{
         res.send(error)
      )
 }
-module.exports={getAllCourses}
+const getFile=async (req,res)=>{  
+  console.log("getfile")
+
+  let file = req.body.path;
+  let fileLocation = path.join(__dirname, '..', '..', 'backend/', file);
+  //res.send({filepath:fileLocation})
+  
+  console.log(`${fileLocation}`)
+  res.sendFile(`${fileLocation}`);
+//     console.log(req.body.path)
+//    var img = fs.readFileSync(req.body.path)
+//    res.send(img);
+
+}
+module.exports={getAllCourses,getFile}

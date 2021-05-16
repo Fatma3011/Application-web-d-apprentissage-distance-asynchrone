@@ -9,46 +9,68 @@ function AllCourses() {
  
   const [data, setData] = useState([{}]);
   const [dataF, setDataF] = useState([{}]);
-const [lengthh, setLengthh] = useState();
-const [lengthhF, setLengthhF] = useState();
+const [lengthh, setLengthh] = useState(0);
+const [lengthhF, setLengthhF] = useState(0);
 
 
 const listFinished=[]
 const listNotFinished=[]
 const {id} = useParams();
 
-  useEffect(() => {
-    console.log(id);
 
-    getMyCourses(id)
-    .then(response=>{console.log(response);
+   useEffect(() => {
+     console.log(id);
+
+     getMyCourses(id)
+     .then(response=>{console.log(response);
       
-       setData(response.data.CoursesNotFinished);
-       setDataF(response.data.CoursesFinished);
-console.log(data)
-        let k=response.data.CoursesNotFinished.length;
-        setLengthh(k);
-        let k2=response.data.CoursesFinished.length;
-        setLengthhF(k2);
+        setData(response.data.CoursesNotFinished);
+        setDataF(response.data.CoursesFinished);
+          console.log(data)
+         setLengthh(response.data.CoursesNotFinished.length);
+         console.log(response.data.CoursesNotFinished.length);
+         setLengthhF(response.data.CoursesFinished.length);
 
-        console.log(lengthh);
-    })
-    .catch(console.log("ARRIIIIIIIIJJJJJJ"))
+     })
+     .catch(console.log("ARRIIIIIIIIJJJJJJ"))
 
       
-    },[]);
-    for(let i=0 ; i<lengthh;i+=3){
-     if(i===0){
+     },[]);
+
+
+
+
+     for(let i=0 ; i<lengthh;i+=3){
+
+      console.log(lengthh);
+
+         if(i===0){
+
+     if (lengthh===1 )
+     {      
+      listNotFinished.push(<div className="carousel-item active "><Carousel1  first={data[0]}   /></div>);}
+     else if (lengthh===2 )
+     {listNotFinished.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}   /></div>);}
+     else if(lengthh===3) {listNotFinished.push(<div className="carousel-item active "><Carousel1  first={data[i]} second={data[i+1]}  third={data[i+2]}  /></div>);}
+   }
+  
+     else{listNotFinished.push(<div className="carousel-item "><Carousel1   first={data[i]} second={(i+1<lengthh)?data[i+1]:null}  third={(i+2<lengthh)?data[i+2]:null} /></div>)}
+     }
+     for(let i=0 ; i<lengthhF;i+=3){
+       if(i===0){
         
-  listNotFinished.push(<div className="carousel-item active "><Carousel1  title1={data[i].title} title2={data[i+1].title}  title3={data[i+2].title}  /></div>);}
-  else{listNotFinished.push(<div className="carousel-item "><Carousel1   title1={data[i].title} title2={data[i+1].title}  title3={data[i+2].title} /></div>)}
-  }
-  for(let i=0 ; i<lengthhF;i+=3){
-    if(i===0){
-       
- listFinished.push(<div className="carousel-item active "><Carousel1  title1={dataF[i].title} title2={dataF[i+1].title}  title3={dataF[i+2].title}  /></div>);}
- else{listFinished.push(<div className="carousel-item "><Carousel1   title1={dataF[i].title} title2={dataF[i+1].title}  title3={dataF[i+2].title} /></div>)}
+   if (lengthhF===1 )
+   {listFinished.push(<div className="carousel-item active "><Carousel1  first={dataF[i]}   /></div>);}
+   if (lengthhF===2 )
+   {listFinished.push(<div className="carousel-item active "><Carousel1  first={dataF[i]} second={dataF[i+1]}   /></div>);}
+   else if(lengthh===3){listFinished.push(<div className="carousel-item active "><Carousel1  first={dataF[i]} second={dataF[i+1]}  third={dataF[i+2]}  /></div>);}
  }
+
+   else{listFinished.push(<div className="carousel-item "><Carousel1   first={dataF[i]} second={(i+1<lengthhF)?dataF[i+1]:null}  third={(i+2<lengthhF)?dataF[i+2]:null} /></div>)}
+   }
+ 
+
+ 
 
     return (
         <>

@@ -24,10 +24,6 @@ date: {
     default:Date.now
 },
 
-
-
-   
- 
  coursesFinished: [{
     id:String,
     title:String,
@@ -42,19 +38,29 @@ date: {
     certif:String,
     
 }],
-
 coursesNotFinished: [{
+    _id:String,
     title:String,
     topic:String,
     estimatedTime:String,
     language:String,
-    image :{name:String,
+    image:{
+        name:String,
         path:String,
-         imageType:String,
-  } ,
+        imageType:String
+      },
+  
     id:String,
     score:String,
-    chapter:String,
+    chapter:{
+     
+    },
+    createdBy: String,
+    description:String,
+    startDate:{
+        type:Date,
+        default:Date.now
+        }
     
 }],
 

@@ -1,2 +1,4 @@
-GET http://localhost:4000/app/home/courses
+GET http://localhost:4000/app/student/course/6097fadd492d493f0c9a4f68/609da2244ddf522d74ff2a73
 Content-Type: application/json
+
+

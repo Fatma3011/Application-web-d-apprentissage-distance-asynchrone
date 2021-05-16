@@ -1,4 +1,5 @@
 const SignUpTemplateCopy= require('../models/studentModel')
+const courseSchema =require('../models/CourseModel')
 const bcrypt=require('bcryptjs')
 
 //get infos of a student
@@ -68,6 +69,30 @@ const getMyCourses = async(req,res)=>{
   .then(student=>{res.send({CoursesNotFinished:student.coursesNotFinished,CoursesFinished:student.coursesFinished});})
 .catch(error=>res.status(401).json({}))
 };
+//getnomchapter
+const getNomchapter= async(req,res)=>{
+  console.log("arijarij")
+ 
+  console.log(req.params.idStudent)
+  console.log("haha")
+  SignUpTemplateCopy.find({_id:req.params.idStudent})
+  .then(student=>{
+    res.send(student);
+  })
+.catch(error=>res.status(401).json({error}))
+};
 
 
-module.exports={getInfo,getMyCourses,updateProfile};
+//get chapter
+
+const getCourse = async(req,res)=>{
+  console.log("haha")
+  courseSchema.findOne({_id:req.params.idCourse})
+  .then(course=>{    console.log(course);
+
+    res.send(course);
+  })
+.catch(error=>res.status(401).json({error}))
+};
+
+module.exports={getInfo,getMyCourses,updateProfile,getCourse,getNomchapter};

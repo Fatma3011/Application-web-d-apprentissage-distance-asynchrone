@@ -14,19 +14,19 @@ export async function getAllCourses() {
       throw (error.response || error.message)
     }
   }
-export async function getImg(imgPath){
-    getFile({
-    path:imgPath
-
-
-   })
-    .then((response) => {
-      console.log(response.data);
-      setImageState(response.data)
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-
-  
+//getFile
+export async function getFile(imagePath){
+  try {
+      const response = await request({
+          method: 'POST',
+          url:'app/home/getfile',
+          data: imagePath,
+         responseType: 'blob'  
+        
+   
+         })
+         return response
+  } catch (error) {
+      throw (error.response || error.message)
   }
+}

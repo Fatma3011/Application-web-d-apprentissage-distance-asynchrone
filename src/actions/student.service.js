@@ -53,3 +53,35 @@ export async function updateProfile(student, idStudent) {
       throw (error.response || error.message)
     }
   }
+
+  export async function getNomchapter(idStudent,idCourse) {
+    try {
+      const response = await request({ 
+        method: 'GET',
+        url: `/app/student/course/${idStudent}/${idCourse}`,
+        headers: { Authorization: "Bearer " + token }
+      })
+      
+      console.log(response)
+  
+      return response
+    } catch (error) {
+      throw (error.response || error.message)
+    }
+  }
+//getchapter
+export async function getCourse(idCourse) {
+  try {
+    const response = await request({ 
+      method: 'GET',
+      url: `/app/student/course/${idCourse}`,
+      headers: { Authorization: "Bearer " + token }
+    })
+    
+    console.log(response)
+
+    return response
+  } catch (error) {
+    throw (error.response || error.message)
+  }
+}
