@@ -40,6 +40,7 @@ date: {
 }],
 coursesNotFinished: [{
     _id:String,
+    chapterNumber:Number,
     title:String,
     topic:String,
     estimatedTime:String,

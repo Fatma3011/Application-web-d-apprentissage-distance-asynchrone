@@ -119,7 +119,8 @@ return (
       {
                           thirdimageState?(<img alt="100%x280" className="img-fluid" id="image" src={URL.createObjectURL(thirdimageState)} width="100%" heigth="100%"/>):''
 
-                }          <div className="card-body">
+                }         
+                 <div className="card-body">
         <h4 className="card-title">{props.third.title}</h4>
           <p className="card-text topic">{props.third.topic}</p>
           <p className="card-text description">{props.third.description}</p>     

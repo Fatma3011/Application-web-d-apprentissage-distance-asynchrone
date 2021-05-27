@@ -13,7 +13,7 @@ const courseSchema = new mongoose.Schema({
      chapters:[{
             chapterTitle:String,
             chapterTime: String,
-            chapterFile:String,
+            chapterFile:{name:String,path:String,},
             points:String,
             quiz:          [{
                                 questionText:String,

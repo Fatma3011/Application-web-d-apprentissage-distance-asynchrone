@@ -22,22 +22,6 @@ function Course(props ) {
         setScore(response.data[0].coursesNotFinished[i].score);
         console.log(score);
       }}
-      
-    //  getCourse(idCourse,idchapter)
-    //  .then(response=>{console.log("getchapter");
-    //    console.log(response);
-    //    setLengthh(response.data.chapters.length);
-    //    for(let i=0;i<response.data.chapters.length;i++)
-    //     {listChapters.push(response.data.chapters[i].title);
-    //      if (response.data.chapters[i]._id===idchapter){
-    //        setChapter(response.data.chapters[i]);
-    //        console.log("arijarijarij");
-    //        setQuiz(response.data.chapters[i].quiz);
-    //        setDescription(response.data.description)}}
-    //  console.log(chapter);
-    //  console.log(description);console.log(quiz)
-    //  })
-    // .catch()
   } )
     .catch(console.log("ARRIIIIIIIIJJJJJJ"))
 

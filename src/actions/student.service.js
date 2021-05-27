@@ -85,3 +85,22 @@ export async function getCourse(idCourse) {
     throw (error.response || error.message)
   }
 }
+export async function  ModifyCourseStudent(attributs,idStudent) {
+  console.log(" add service")
+
+  try {
+    const response = await request({ 
+      method: 'POST',
+      data: attributs,
+      url: `/app/ModifyCourseStudent/${idStudent}`,
+      headers: { Authorization: "Bearer " + token }
+
+    })
+    console.log(" add retour service")
+    console.log(response)
+
+    return response
+  } catch (error) {
+    throw (error.response || error.message)
+  }
+}

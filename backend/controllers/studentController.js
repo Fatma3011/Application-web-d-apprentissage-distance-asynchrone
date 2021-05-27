@@ -86,13 +86,41 @@ const getNomchapter= async(req,res)=>{
 //get chapter
 
 const getCourse = async(req,res)=>{
-  console.log("haha")
+  console.log("jajajaj")
   courseSchema.findOne({_id:req.params.idCourse})
-  .then(course=>{    console.log(course);
-
-    res.send(course);
+  .then(course=>{
+    console.log(course);res.send(course);
   })
 .catch(error=>res.status(401).json({error}))
 };
+const ModifyCourseStudent = async(req,res)=>{
+  console.log(" addCourseToStudent backend")
 
-module.exports={getInfo,getMyCourses,updateProfile,getCourse,getNomchapter};
+  idStudent=req.params.idStudent;
+  updatedData={
+    coursesNotFinished: {
+          _id: req.body.id,
+          title : req.body.title,
+          topic: req.body.topic,
+          estimatedTime: req.body.estimatedTime,
+          language: req.body.language,
+          image: req.body.image,
+          chapterNumber: req.body.chapterNumber,
+          score: req.body.score,
+          chapter: req.body.chapter,
+          description: req.body.description,
+          createdBy : req.body.createdBy,
+          }
+  }
+  const student=SignUpTemplateCopy.findById(idStudent)
+  console.log('aaaaaaaaaaaa')
+  student.coursesNotFinished.findByIdAndDelete(idCourse)
+  console.log('bbbb')
+
+  SignUpTemplateCopy.findByIdAndUpdate(idStudent,{ $push:updatedData})
+  .then((res)=>{console.log("cours ajouté avec succes")})
+  .catch((error)=>{console.log("err")})
+
+};
+
+module.exports={getInfo,getMyCourses,updateProfile,getCourse,getNomchapter,ModifyCourseStudent};

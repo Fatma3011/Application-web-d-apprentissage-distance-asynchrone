@@ -60,7 +60,7 @@ function NavBar() {
                         My courses
                         </NavLink>
                         </a></li>
-                    <li><a href="#">My certificates </a></li>
+                    
 
                     <li><a href="#">                    <NavLink className="nav-link" to="/home">
 Sign out</NavLink> </a></li>
