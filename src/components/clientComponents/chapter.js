@@ -46,7 +46,7 @@ function ViewCourse() {
             if(idCourse !== undefined){  
           
               getNomchapter(idStudent,idCourse)
-              .then((response) => {
+              .then((response) => {console.log(response)
 
                 for(let i=0;i<response.data[0].coursesNotFinished.length;i++){
                     if (response.data[0].coursesNotFinished[i]._id===idCourse){
@@ -55,6 +55,7 @@ function ViewCourse() {
                         score: response.data[0].coursesNotFinished[i].score,
                         chapter:response.data[0].coursesNotFinished[i].chapter,
                         chapterNumber:response.data[0].coursesNotFinished[i].chapterNumber,
+                        numberOfChapters:response.data[0].coursesNotFinished[i].numberOfChapters,
 
                       });
                   }}
@@ -99,6 +100,7 @@ function ViewCourse() {
   
       const [imageState, setImageState] = useState("");
       const [Chapterstate, setChapterstate] = useState({});
+
       const [value, setValue] = React.useState(0);
   
   
@@ -167,14 +169,15 @@ function ViewCourse() {
                                                         
                                                                           
                                          ):''                 
-                  }
+   
+                                        }
             */}
         
           </Tabs>
         </AppBar>
          { Chapterstate.chapter?(
        
-                   <MainPanel value={value} chapter={Chapterstate.chapter} chapterNumber={Chapterstate.chapterNumber} score={Chapterstate.score}/>                  
+                   <MainPanel value={value} chapter={Chapterstate.chapter} chapterNumber={Chapterstate.chapterNumber} score={Chapterstate.score} numberOfChapters={Chapterstate.numberOfChapters}/>                  
     
                    ):''                 
                   } 
@@ -203,13 +206,13 @@ function ViewCourse() {
   function MainPanel(props) {
     let {idCourse,idStudent}= useParams()
 
-    const {  chapter,chapterNumber,score } = props;
+    const {  chapter,chapterNumber,score,numberOfChapters} = props;
   const [pdfFile,setPdfFile]=useState('');
   const [value, setValue] = React.useState(0);
-  
+  const [finstate, setFinstate] = useState("false");
+ // const [long, setLong] = useState();
   
     useEffect(() => {   
-      console.log(chapter);   
       getFile({
         
         path:chapter.chapterFile.path
@@ -237,7 +240,11 @@ function ViewCourse() {
       .then((response)=>{
         console.log(" getCourse ")
          console.log(response.data.image)
-         console.log(response.data.chapters[0])
+         console.log(response.data.chapters.length)
+         console.log(chapterNumber)
+         console.log(numberOfChapters);   
+
+       
         let attributs={
           title : response.data.title,
           topic: response.data.topic,
@@ -245,7 +252,7 @@ function ViewCourse() {
           language: response.data.language,
           image: response.data.image,
           id: response.data._id,
-          chapter: response.data.chapters[chapterNumber+1],
+          chapter: response.data.chapters[chapterNumber],
           chapterNumber : chapterNumber+1,
           score:score,
           description: response.data.description,
@@ -256,7 +263,9 @@ function ViewCourse() {
         ModifyCourseStudent(attributs,idStudent)
         .then(()=>{console.log("debut add")})
         .catch(()=>{console.log("errr add")})
-
+       // if((chapterNumber+1)===response.data.chapters.length){setFinstate("true");console.log("fin");console.log(finstate);}
+        //else {setFinstate("false");console.log("mch fin")}
+       // console.log(finstate)
     })
   .catch(()=>{console.log("khraj")})};
     return (
@@ -284,8 +293,8 @@ function ViewCourse() {
   )
   
   :(<><Quiz questions={chapter.quiz} total={chapter.quiz.length}/>
-  
-  <a href="#" className="btn btn-style-1 " onClick={handleClick}>  <NavLink
+
+{(chapterNumber!==numberOfChapters)?(<a href="#" className="btn btn-style-1 " onClick={handleClick}>  <NavLink
                       className="nextChapter"
                       to="/student/course/:idStudent/:idCourse"
                       
@@ -293,7 +302,16 @@ function ViewCourse() {
                         fontWeight: "bold",
                         color: "white",
                       }}
-                    >Next chapter</NavLink></a>   </>)
+                    >Next chapter</NavLink></a>  ):(<a href="#" className="btn btn-style-1 ">  <NavLink
+                    className="nextChapter"
+                    to="/student/course/:idStudent/:idCourse"
+                    
+                    activeStyle={{
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >View Score</NavLink></a>)} </>
+                    )
   
   
   }
@@ -306,6 +324,8 @@ function ViewCourse() {
   
   function Quiz(props){
   const {questions ,total}=props;
+  let list1=[];
+  let list=[];
   return  questions.map((ques, i)=> (
   
     <div key={i}>
@@ -341,17 +361,19 @@ function ViewCourse() {
             <div key={j} style={{display:'flex', flexDirection:'row', marginLeft:'-13px'}}>
   
                 <Radio 
-               value={ques.options[j].value}
+                               value={ques.options[j].value}
+
                checked={ques.answerKey ===ques.options[j].value}
-  
+                 
                />  
-              
+     
                    <span style={{padding:'8px'}} >
                 {ques.options[j].optionText} 
             </span>
   
             </div>
-             
+            list.push()       
+            list1.push()   
            ))}  
            </div>  
            
@@ -361,11 +383,12 @@ function ViewCourse() {
          <Divider />
   
      </AccordionDetails>
+     
   </Accordion>
-  
-     </div>
+    
+     </div>  
   </div>
-                
+         
   
   )
   )

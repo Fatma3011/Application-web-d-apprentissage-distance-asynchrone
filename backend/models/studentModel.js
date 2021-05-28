@@ -42,6 +42,8 @@ coursesNotFinished: [{
     _id:String,
     chapterNumber:Number,
     title:String,
+    numberOfChapters:Number,
+
     topic:String,
     estimatedTime:String,
     language:String,

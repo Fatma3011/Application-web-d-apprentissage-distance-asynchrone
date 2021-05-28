@@ -31,7 +31,7 @@ const list=[]
 }
 
   else{list.push(<div className="carousel-item "><Carousel1   first={data[i]} second={(i+1<lengthh)?data[i+1]:null}  third={(i+2<lengthh)?data[i+2]:null} /></div>)}
-  }
+  console.log(list);}
      return (
 
 

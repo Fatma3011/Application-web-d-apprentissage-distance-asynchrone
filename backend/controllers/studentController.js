@@ -77,6 +77,7 @@ const getNomchapter= async(req,res)=>{
   console.log("haha")
   SignUpTemplateCopy.find({_id:req.params.idStudent})
   .then(student=>{
+    console.log(student);
     res.send(student);
   })
 .catch(error=>res.status(401).json({error}))
@@ -98,8 +99,8 @@ const ModifyCourseStudent = async(req,res)=>{
 
   idStudent=req.params.idStudent;
   updatedData={
-    coursesNotFinished: {
-          _id: req.body.id,
+    //coursesNotFinished: {
+         // _id: req.body.id,
           title : req.body.title,
           topic: req.body.topic,
           estimatedTime: req.body.estimatedTime,
@@ -110,14 +111,18 @@ const ModifyCourseStudent = async(req,res)=>{
           chapter: req.body.chapter,
           description: req.body.description,
           createdBy : req.body.createdBy,
-          }
+        //  }
   }
-  const student=SignUpTemplateCopy.findById(idStudent)
-  console.log('aaaaaaaaaaaa')
-  student.coursesNotFinished.findByIdAndDelete(idCourse)
-  console.log('bbbb')
 
-  SignUpTemplateCopy.findByIdAndUpdate(idStudent,{ $push:updatedData})
+  console.log('aaaaaaaaaaaa')
+ SignUpTemplateCopy.update(
+    
+        { "_id": idStudent},
+    
+        {$set: { 'coursesNotFinished.$[i].chapter': req.body.chapter,'coursesNotFinished.$[i].chapterNumber':req.body.chapterNumber,'coursesNotFinished.$[i].score':req.body.score}},
+        {arrayFilters: [{'i._id':req.body.id}]}
+    
+)
   .then((res)=>{console.log("cours ajouté avec succes")})
   .catch((error)=>{console.log("err")})
 

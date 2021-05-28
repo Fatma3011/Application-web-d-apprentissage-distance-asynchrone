@@ -2,7 +2,6 @@ const mongoose=require('mongoose')
 const courseSchema = new mongoose.Schema({
     title:String,
     topic:String,
-      
     language:String,
     description:String,
     estimatedTime:String,
