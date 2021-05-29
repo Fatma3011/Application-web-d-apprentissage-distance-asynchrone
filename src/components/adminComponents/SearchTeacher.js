@@ -6,6 +6,9 @@ import {
   BrowserRouter as Router,
   useRouteMatch,
 } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 function Search() {
   const c = useRouteMatch();
@@ -73,6 +76,7 @@ function Search() {
                 <a href="" onClick={redirectTeachers}>
                   <i className="fas fa-arrow-circle-left"></i>
                 </a>
+              
               </h3>
           <div className="row">
             <div className="col-lg-9">
@@ -109,7 +113,6 @@ function Search() {
                       <th>specialization</th>
                       <th>E-mail</th>
                       <th>Phone number</th>
-                      <th>Salary</th>
                       <th>Delete</th>
                     </tr>
                   </thead>
@@ -120,7 +123,6 @@ function Search() {
                       <th>specialization</th>
                       <th>E-mail</th>
                       <th>Phone number</th>
-                      <th>Salary</th>
                       <th>Delete</th>
                     </tr>
                   </tfoot>
@@ -132,11 +134,17 @@ function Search() {
                         <td>{item.specialization}</td>
                         <td>{item.email}</td>
                         <td>{item.phonenumber}</td>
-                        <td>{item.salary}</td>
                         <td>
-                          <a href="#" onClick={() => handleDelete(item._id)}>
+                          {/* <a href="#" onClick={() => handleDelete(item._id)}>
                             <i className="fa fa-trash" aria-hidden="true"></i>
-                          </a>
+                          </a> */}
+                          <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDelete(item._id)}
+                  >
+                  <DeleteIcon />
+                  </Button>
                         </td>
                       </tr>
                     ))}
