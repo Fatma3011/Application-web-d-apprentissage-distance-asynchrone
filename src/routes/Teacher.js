@@ -11,6 +11,7 @@ import Profile from "../components/teacherComponents/Profile";
 import Courses from "../components/teacherComponents/Courses";
 import AddCourse from "../components/teacherComponents/AddCourse";
 import ViewCourse from "../components/teacherComponents/ViewCourse";
+import editCourse from "../components/teacherComponents/EditCourse";
 
 
 function Teacher() {
@@ -30,8 +31,9 @@ function Teacher() {
               <Route path={`${url.path}/profile/`}  exact component={Profile} />
               <Route path={`${url.path}/addCourse`}  exact component={AddCourse} />
               <Route path={`${url.path}/courses`}  exact component={Courses} />
-              <Route path={`${url.path}/seeCourse/:idC`}  exact component={ViewCourse} />
-          
+              <Route path={`${url.path}/viewCourse/:idC`}  exact component={ViewCourse} />
+              <Route path={`${url.path}/editCourse/:idC`}  exact component={editCourse} />
+
 
               {/* <Route path={`${url.path}/editCourse/:id`}  exact component={EditCourse} />
               <Route path={`${url.path}/viewCourse/:id`}  exact component={ViewCourse} /> */} 

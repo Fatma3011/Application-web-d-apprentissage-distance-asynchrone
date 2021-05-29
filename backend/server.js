@@ -11,7 +11,7 @@ const app =express()
 
 dotenv.config() //hide (secure) the password and the info about the table 
 
-mongoose.connect(process.env.DATABASE_ACCESS,()=>{console.log("database connected")})
+mongoose.connect(process.env.DATABASE_ACCESS1,()=>{console.log("database connected")})
 
 app.use(express.json()) //activate body-parser
 app.use(cors()) // activate middleware
