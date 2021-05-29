@@ -26,3 +26,4 @@ yarn-error.log*
 /src/Carousell.js
 /src/expl.js
 /src/components/adminComponents/EditEmail.js
+/backend/uploads
