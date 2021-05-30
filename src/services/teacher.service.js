@@ -83,7 +83,7 @@ export async function editCourse(course){
   try {
       const response = await request({
           method: 'POST',
-          url:"/teacher/updateProfile",
+          url:"/teacher/editCourse",
           data: course
       })
       console.log({ response });

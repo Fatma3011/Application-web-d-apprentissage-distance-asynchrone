@@ -1,11 +1,21 @@
 import React, { useState ,useEffect} from 'react'
 import { updateTeacher, getTeacher } from "../../services/teacher.service";
 import {withRouter ,useHistory} from 'react-router-dom';
+<<<<<<< HEAD
 
 function Profile() { 
   let iduser="6087f375b0757ab1749fec37";
   const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
    const phoneRegex=/\D/;
+=======
+import * as Yup from 'yup'
+import {useFormik} from 'formik'
+
+
+function Profile() { 
+  let iduser="6087f375b0757ab1749fec37";
+ 
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
    const history=useHistory();
 
   useEffect(() => {
@@ -28,7 +38,13 @@ function Profile() {
            specialization: response.response.specialization,
              phone: response.response.phone,
             email:response.response.email,
+<<<<<<< HEAD
 
+=======
+            currentPassword:response.response.password,
+            newPassword:'',
+            confirmpassword:''
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
         });
 
         console.log(response)
@@ -43,6 +59,7 @@ function Profile() {
 
   const [error, setError] = useState(
     {
+<<<<<<< HEAD
    firstName:true,
    lastName: true,
    specialization: true,
@@ -62,6 +79,55 @@ function Profile() {
 
 
 }
+=======
+   firstName:false,
+   lastName: false,
+   specialization: false,
+   phone: false,
+   email:false,
+   currentPassword:false,
+   newPassword:false,
+   confirmPassword:false,
+   matchedPassword:false
+  }
+ );
+
+ const  initialValues= {
+  firstName:profile.firstName,
+   lastName: profile.lastName,
+   specialization: profile.specialization,
+   phone: profile.phone,
+   email:profile.email,
+   password:profile.password,
+   confirmpassword:profile.confirmpassword,
+   matchedPassword:true
+
+}
+
+
+const validationSchema = Yup.object({
+  firstName: Yup.string()
+  .required('Required'),
+  lastName: Yup.string()
+  .required('Required'),
+  specialization: Yup.string()
+  .required('Required'),
+
+
+
+
+  email: Yup.string()
+    .email('Invalid email format')
+    .required('Required'),
+    password:Yup.string().required('Required')
+    .min(6),
+password2: Yup.mixed().test('match', 'Passwords do not match', function (value) {
+return value === this.parent.password
+}).required('Password confirm is required'),
+ })
+
+
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
 
 function validation(){
   if(profile.password!==profile.confirmpassword) setError({...error,matchedPassword:false})
@@ -93,7 +159,11 @@ function validation(){
 
 
 
+<<<<<<< HEAD
   const [updateState, setupdateState] = useState(true);
+=======
+  const [updateState, setupdateState] = useState(false);
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
 
   const updatehandler=()=>{
     setupdateState(!updateState);
@@ -148,7 +218,11 @@ function validation(){
                 <input type="text" name="firstName" placeholder="First Name"
                value={profile.firstName}
                onChange={(e)=>{setProfile({...profile ,firstName:e.target.value});
+<<<<<<< HEAD
               e.target.value===""?setError({...error,firstName:false}):setError({...error,firstName:true})
+=======
+              e.target.value===""?setError({...error,firstName:false}):setError({...error,firstName:false})
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
               }}            
                />
 
@@ -158,7 +232,11 @@ function validation(){
                 <input type="text" name="lastName" placeholder="Last Name"
                 value={profile.lastName}
                  onChange={(e)=>{setProfile({...profile ,lastName:e.target.value});
+<<<<<<< HEAD
                  e.target.value===""?setError({...error,lastName:false}):setError({...error,lastName:true})
+=======
+                 e.target.value===""?setError({...error,lastName:false}):setError({...error,lastName:false})
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
 
                 }}            
                  />
@@ -168,7 +246,11 @@ function validation(){
                 <input type="text" name="specialization" placeholder="Specialization"
                                  value={profile.specialization}
                  onChange={(e)=>{setProfile({...profile ,specialization:e.target.value});
+<<<<<<< HEAD
                  e.target.value===""?setError({...error,specialization:false}):setError({...error,specialization:true})
+=======
+                 e.target.value===""?setError({...error,specialization:false}):setError({...error,specialization:false})
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                 }}       
                  />
                {!error.specialization && <span className="error">This field is required</span>} 
@@ -177,8 +259,12 @@ function validation(){
                 <input type="text" name="phone" placeholder="Phone"
                 value={profile.phone}
                  onChange={(e)=>{setProfile({...profile ,phone:e.target.value});
+<<<<<<< HEAD
                  e.target.value===""?setError({...error,phone:false}):setError({...error,phone:true})
                 phoneRegex.test(e.target.value)? setError({...error,validPhone:true}):setError({...error,validPhone:false})
+=======
+                 e.target.value===""?setError({...error,phone:false}):setError({...error,phone:false})
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
 
                 }}
                  />
@@ -191,8 +277,12 @@ function validation(){
                 <input type="email" name="email" placeholder="Email"
                   value={profile.email}
                   onChange={(e)=>{setProfile({...profile ,email:e.target.value});
+<<<<<<< HEAD
                   e.target.value===""?setError({...error,email:false}):setError({...error,email:true})
                   emailRegex.test(e.target.value)? setError({...error,validEmail:true}):setError({...error,validEmail:false})
+=======
+                  e.target.value===""?setError({...error,email:false}):setError({...error,email:false})
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
 
                 }}
                   />
@@ -202,9 +292,19 @@ function validation(){
 
 
                 <h5 className="fs-subtitle">Change Password</h5>
+<<<<<<< HEAD
                 <input type="password" name="password" placeholder="Password"
                    onChange={(e)=>{setProfile({...profile ,password:e.target.value});}}
                    value={profile.password}/>
+=======
+                <input type="password" name="currentpassword" placeholder="Current Password"
+                   onChange={(e)=>{setProfile({...profile ,currentPassword:e.target.value});}}
+                   value={profile.currentPassword}/>
+
+                <input type="password" name="newpassword" placeholder=" New Password"
+                   onChange={(e)=>{setProfile({...profile ,newPassword:e.target.value});}}
+                   value={profile.newPassword}/>
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                 <input type="password" name="confirmpassword" placeholder="Confirm Password"
                       onChange={(e)=>{setProfile({...profile, confirmpassword:e.target.value});}}
                       value={profile.confirmpassword}/>

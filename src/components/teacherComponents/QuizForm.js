@@ -213,30 +213,12 @@ if(optionsOfQuestion[i].options[j].value===optionsOfQuestion[i].answerKey)
             </div>
         </AccordionDetails>
    
-
-        {/* <Divider />
-        <AccordionActions>
-          <Button size="small" onClick={()=>{removeQuestion(i)}}>Cancel</Button>
-          <Button size="small" color="primary" onClick={()=>{saveQuestions()}}>
-            Save
-          </Button>
-        </AccordionActions> */}
-
-
-
-        
           </Accordion>
-       
-       
-       
-       
-       
+
         </div>
                            
                           </div>
-                   
-         
-     
+
      )
     )
   }

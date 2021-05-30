@@ -103,22 +103,38 @@ function Row(props) {
         {row.title}</TableCell>
         <TableCell align="center">{row.creationDate}</TableCell>
         <TableCell align="center">{row.topic}</TableCell>
+<<<<<<< HEAD
+=======
+        <TableCell align="center">{row.level}</TableCell>
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
         <TableCell align="center">{row.language}</TableCell>
         <TableCell align="center">{row.estimatedTime}</TableCell>
         <TableCell align="center">{row.chapters.length}</TableCell>
         <TableCell align="center" >10</TableCell>
         <TableCell align="center"> 
                 <div style={{display:"flex"}}>
+<<<<<<< HEAD
                   <NavLink  to={{ pathname: `/teacher/seeCourse/${row._id}`}}>
+=======
+                  <NavLink  to={{ pathname: `/teacher/viewCourse/${row._id}`}}>
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                   <Button variant="contained"   style={{marginRight:"10px" }}>
                       <VisibilityIcon />     
                   </Button></NavLink>
                   
+<<<<<<< HEAD
                   {/* <NavLink  to={{ pathname: `/teacher/editCourse/${row._id}`}}>
                   <Button variant="contained"  color="primary"  style={{marginRight:"10px"}}>
                             <EditIcon />
                         
                   </Button></NavLink> */}
+=======
+                  <NavLink  to={{ pathname: `/teacher/editCourse/${row._id}`}}>
+                  <Button variant="contained"  color="primary"  style={{marginRight:"10px"}}>
+                            <EditIcon />
+                        
+                  </Button></NavLink>
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                   <Button
                     variant="contained"
                     color="secondary"
@@ -238,6 +254,10 @@ export default function Courses() {
                     <TableCell>Title</TableCell>
                     <TableCell align="center">creation Date</TableCell>
                     <TableCell align="center">Topic</TableCell>
+<<<<<<< HEAD
+=======
+                    <TableCell align="center">Level</TableCell>
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                     <TableCell align="center">Language</TableCell>
                     <TableCell align="center">Time</TableCell>
                     <TableCell align="center">Chapters</TableCell>

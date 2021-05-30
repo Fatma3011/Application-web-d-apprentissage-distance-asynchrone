@@ -11,7 +11,8 @@ const history=useHistory();
 
     const [courseState, setCourseState] = useState({
         title: "",
-        topic: "",
+        topic: "Data Science",
+        level:"II1",
         language: "",
         description: "",
         estimatedTime: "0",
@@ -71,29 +72,25 @@ const history=useHistory();
 
 
         const [image ,setImage]=useState('')
-        //const fileType=['application/jpeg','application/PNG'];
         
         const handleImageChange=(e)=>{
-          //let selectedImage=e.target.files[0];
-        
-          //if(selectedImage){
-           
-        
-           // if(selectedImage&&fileType.includes(selectedImage.type)){
-                      setImage(e.target.files[0]);
-        
-            //}
-        //     else{
-        //       console.log('select a valid type ');
-        //     }
-        //   }
-        //   else{
-        //     console.log('select your file');
-        //   }
-        // }
-        
-        
 
+          const image = e.target.files[0];
+                    if (!image) {
+                    console.log('image is required');
+                    return false;
+                    }else{
+                      if(image.name.match(/\.(jpg|jpeg|png|gif)$/)){
+                        setImage(e.target.files[0]);
+                      }else{
+                        console.log('select valid image.');
+                        return false;
+
+                      }
+                        
+
+                    }
+        
         }
 
 
@@ -105,6 +102,7 @@ const history=useHistory();
         fd.append('createdBy',idUser);
         fd.append('title', courseState.title)
         fd.append('topic', courseState.topic)
+        fd.append('level', courseState.level)
         fd.append('language', courseState.language)
         fd.append('description', courseState.description)
         fd.append('estimatedTime',courseState.estimatedTime)
@@ -135,14 +133,49 @@ const history=useHistory();
                     <h2 className="fs-title">New Course</h2>
                     <input type="text" name="title" placeholder="Title"  
                           value={courseState.title} 
-                          // {...register("title", { required: true, maxLength: 20 })}
                           onChange={handleCourseChange}/>
                     {/* {errors.title && <span className="error">This field is required</span>} */}
 
-                    <input type="text" name="topic" placeholder="Topic"
+                    {/* <input type="text" name="topic" placeholder="Topic"
                           value={courseState.topic} 
-                          // {...register("topic", { required: true, maxLength: 20 })}
-                          onChange={handleCourseChange}/>
+                          onChange={handleCourseChange}/> */}
+                          <select className="selection"
+                                value={courseState.topic}
+                                onChange={e => setCourseState({...courseState,topic:e.currentTarget.value})}
+                      >
+
+<option value="Data Science">Data Science</option>
+<option value="Development">Development</option>
+<option value="HealthCare">HealthCare</option>
+
+                      </select>
+
+
+                      <select className="selection"
+                                value={courseState.level}
+                                onChange={e => setCourseState({...courseState,level:e.currentTarget.value})}
+                      >
+
+<option value="II1">II1</option>
+<option value="II2">II2</option>
+<option value="II3">II3</option>
+<option value="M1">M1</option>
+<option value="M2">M2</option>
+
+
+                      </select>
+
+
+
+
+
+
+
+
+
+
+
+
                     {/* {errors.topic && <span className="error">This field is required</span>} */}
 
                     <input type="text" name="language" placeholder="Language" 

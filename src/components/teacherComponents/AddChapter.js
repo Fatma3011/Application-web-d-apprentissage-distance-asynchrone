@@ -3,6 +3,10 @@ import { Typography } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {TextField }from '@material-ui/core';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import {TextField }from '@material-ui/core';
+
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -149,7 +153,7 @@ function removeQuestion(i){
 //**********file upload*******************
 
 const [file ,setFile]=useState('')
-const fileType=['application/pdf'];
+const fileType=['application/mp4'];
 
 const handlePdfFileChange=(e)=>{
   let selectedFile=e.target.files[0];
@@ -157,15 +161,13 @@ const handlePdfFileChange=(e)=>{
   if(selectedFile){
    
 
-    if(selectedFile&&fileType.includes(selectedFile.type)){
-              //setChapterState({...chapterState,chapterFile:e.target.files[0]});
+    //if(selectedFile&&fileType.includes(selectedFile.type)){
               setFile(e.target.files[0]);
 
-    }
-    else{
-      //chapterState.chapterFile=null;*
-      console.log('select a valid type ');
-    }
+    //}
+    //else{
+      //console.log('select a valid type ');
+    //}
   }
   else{
     console.log('select your file');
@@ -347,7 +349,7 @@ const handlePdfFileChange=(e)=>{
             </div>
 
             <input type="button" className="action-button-quiz" onClick={addMoreQuestionField} style={{marginRight:"4%"}} value="Add question"/>
-              <input type="button" className="action-button-quiz" onClick={submitHandler} value="Save questions"/>
+              <input type="button" className="action-button-quiz" onClick={submitHandler} value="Save chapter"/>
           
             </div>
         </div>

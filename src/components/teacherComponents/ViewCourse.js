@@ -51,6 +51,11 @@ function ViewCourse() {
                setCourseState({
                 title: response.response.title,
                 topic: response.response.topic,
+<<<<<<< HEAD
+=======
+                level: response.response.level,
+
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                 language: response.response.language,
                 description: response.response.description,
 
@@ -126,7 +131,14 @@ function ViewCourse() {
                       
                     <label  className="courseInfo">Topic : {  courseState.topic }  </label>   
                     <label   className="courseInfo" style={{marginLeft:'50px'}}>Language : { courseState.language }</label>  
+<<<<<<< HEAD
                     <label   className="courseInfo" style={{marginLeft:'50px'}}>Time : { courseState.estimatedTime } hours</label> <br/> 
+=======
+                    <label   className="courseInfo" style={{marginLeft:'50px'}}>Time : { courseState.estimatedTime } hours</label> 
+                    <label   className="courseInfo" style={{marginLeft:'50px'}}> { courseState.level!==undefined?courseState.level:'' }</label>  
+
+                    <br/> 
+>>>>>>> 1cbf61bc3c0411ea3377a74de152a17244168e85
                     <label   className="courseInfo" style={{marginLeft:'50px'}}> { courseState.description!==undefined?courseState.description:'' }</label>  
 
                </div>

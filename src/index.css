@@ -1119,7 +1119,7 @@ section {
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
-.contact .php-email-form .form-group {
+.contact .php-email-form .group {
   padding-bottom: 8px;
 }
 
@@ -1179,7 +1179,7 @@ section {
   padding: 10px 12px;
 }
 
-.contact .php-email-form button[type="submit"] {
+.contact .php-email-form button[type=""] {
   background: #0f3361;
   border: 0;
   padding: 10px 30px;
@@ -1188,7 +1188,7 @@ section {
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
+.contact .php-email-form button[type=""]:hover {
   background: #00805d;
 }
 
@@ -1368,7 +1368,7 @@ section {
   width: calc(100% - 100px);
 }
 
-#footer .footer-newsletter form input[type="submit"] {
+#footer .footer-newsletter form input[type=""] {
   position: absolute;
   top: 0;
   right: -2px;
@@ -1384,7 +1384,7 @@ section {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#footer .footer-newsletter form input[type="submit"]:hover {
+#footer .footer-newsletter form input[type=""]:hover {
   background: #00664b;
 }
 
@@ -1844,21 +1844,21 @@ select {
 button,
 [type=button],
 [type=reset],
-[type=submit] {
+[type=] {
   -webkit-appearance: button;
 }
 
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
-[type=submit]:not(:disabled) {
+[type=]:not(:disabled) {
   cursor: pointer;
 }
 
 button::-moz-focus-inner,
 [type=button]::-moz-focus-inner,
 [type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type=]::-moz-focus-inner {
   padding: 0;
   border-style: none;
 }
@@ -3537,7 +3537,7 @@ pre code {
   border: 0;
 }
 
-.form-control {
+.control {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -3553,71 +3553,71 @@ pre code {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .form-control {
+  .control {
     transition: none;
   }
 }
-.form-control::-ms-expand {
+.control::-ms-expand {
   background-color: transparent;
   border: 0;
 }
-.form-control:-moz-focusring {
+.control:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #495057;
 }
-.form-control:focus {
+.control:focus {
   color: #495057;
   background-color: #fff;
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-.form-control::-webkit-input-placeholder {
+.control::-webkit-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::-moz-placeholder {
+.control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control:-ms-input-placeholder {
+.control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::-ms-input-placeholder {
+.control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::placeholder {
+.control::placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control:disabled, .form-control[readonly] {
+.control:disabled, .control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
 }
 
-input[type=date].form-control,
-input[type=time].form-control,
-input[type=datetime-local].form-control,
-input[type=month].form-control {
+input[type=date].control,
+input[type=time].control,
+input[type=datetime-local].control,
+input[type=month].control {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
 
-select.form-control:focus::-ms-value {
+select.control:focus::-ms-value {
   color: #495057;
   background-color: #fff;
 }
 
-.form-control-file,
-.form-control-range {
+.control-file,
+.control-range {
   display: block;
   width: 100%;
 }
 
-.col-form-label {
+.col-label {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);
   margin-bottom: 0;
@@ -3625,21 +3625,21 @@ select.form-control:focus::-ms-value {
   line-height: 1.5;
 }
 
-.col-form-label-lg {
+.col-label-lg {
   padding-top: calc(0.5rem + 1px);
   padding-bottom: calc(0.5rem + 1px);
   font-size: 1.25rem;
   line-height: 1.5;
 }
 
-.col-form-label-sm {
+.col-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
-.form-control-plaintext {
+.control-plaintext {
   display: block;
   width: 100%;
   padding: 0.375rem 0;
@@ -3651,12 +3651,12 @@ select.form-control:focus::-ms-value {
   border: solid transparent;
   border-width: 1px 0;
 }
-.form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
+.control-plaintext.control-sm, .control-plaintext.control-lg {
   padding-right: 0;
   padding-left: 0;
 }
 
-.form-control-sm {
+.control-sm {
   height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
@@ -3664,7 +3664,7 @@ select.form-control:focus::-ms-value {
   border-radius: 0.2rem;
 }
 
-.form-control-lg {
+.control-lg {
   height: calc(1.5em + 1rem + 2px);
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
@@ -3672,61 +3672,61 @@ select.form-control:focus::-ms-value {
   border-radius: 0.3rem;
 }
 
-select.form-control[size], select.form-control[multiple] {
+select.control[size], select.control[multiple] {
   height: auto;
 }
 
-textarea.form-control {
+textarea.control {
   height: auto;
 }
 
-.form-group {
+.group {
   margin-bottom: 1rem;
 }
 
-.form-text {
+.text {
   display: block;
   margin-top: 0.25rem;
 }
 
-.form-row {
+.row {
   display: flex;
   flex-wrap: wrap;
   margin-right: -5px;
   margin-left: -5px;
 }
-.form-row > .col,
-.form-row > [class*=col-] {
+.row > .col,
+.row > [class*=col-] {
   padding-right: 5px;
   padding-left: 5px;
 }
 
-.form-check {
+.check {
   position: relative;
   display: block;
   padding-left: 1.25rem;
 }
 
-.form-check-input {
+.check-input {
   position: absolute;
   margin-top: 0.3rem;
   margin-left: -1.25rem;
 }
-.form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
+.check-input[disabled] ~ .check-label, .check-input:disabled ~ .check-label {
   color: #6c757d;
 }
 
-.form-check-label {
+.check-label {
   margin-bottom: 0;
 }
 
-.form-check-inline {
+.check-inline {
   display: inline-flex;
   align-items: center;
   padding-left: 0;
   margin-right: 0.75rem;
 }
-.form-check-inline .form-check-input {
+.check-inline .check-input {
   position: static;
   margin-top: 0;
   margin-right: 0.3125rem;
@@ -3764,7 +3764,7 @@ textarea.form-control {
   display: block;
 }
 
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .control:valid, .control.is-valid {
   border-color: #28a745;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
@@ -3772,12 +3772,12 @@ textarea.form-control {
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+.was-validated .control:valid:focus, .control.is-valid:focus {
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
+.was-validated textarea.control:valid, textarea.control.is-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
@@ -3792,12 +3792,12 @@ textarea.form-control {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+.was-validated .check-input:valid ~ .check-label, .check-input.is-valid ~ .check-label {
   color: #28a745;
 }
-.was-validated .form-check-input:valid ~ .valid-feedback,
-.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
-.form-check-input.is-valid ~ .valid-tooltip {
+.was-validated .check-input:valid ~ .valid-feedback,
+.was-validated .check-input:valid ~ .valid-tooltip, .check-input.is-valid ~ .valid-feedback,
+.check-input.is-valid ~ .valid-tooltip {
   display: block;
 }
 
@@ -3857,7 +3857,7 @@ textarea.form-control {
   display: block;
 }
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
+.was-validated .control:invalid, .control.is-invalid {
   border-color: #dc3545;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
@@ -3865,12 +3865,12 @@ textarea.form-control {
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+.was-validated .control:invalid:focus, .control.is-invalid:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
+.was-validated textarea.control:invalid, textarea.control.is-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
@@ -3885,12 +3885,12 @@ textarea.form-control {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+.was-validated .check-input:invalid ~ .check-label, .check-input.is-invalid ~ .check-label {
   color: #dc3545;
 }
-.was-validated .form-check-input:invalid ~ .invalid-feedback,
-.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,
-.form-check-input.is-invalid ~ .invalid-tooltip {
+.was-validated .check-input:invalid ~ .invalid-feedback,
+.was-validated .check-input:invalid ~ .invalid-tooltip, .check-input.is-invalid ~ .invalid-feedback,
+.check-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
@@ -3919,59 +3919,59 @@ textarea.form-control {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.form-inline {
+.inline {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
 }
-.form-inline .form-check {
+.inline .check {
   width: 100%;
 }
 @media (min-width: 576px) {
-  .form-inline label {
+  .inline label {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0;
   }
-  .form-inline .form-group {
+  .inline .group {
     display: flex;
     flex: 0 0 auto;
     flex-flow: row wrap;
     align-items: center;
     margin-bottom: 0;
   }
-  .form-inline .form-control {
+  .inline .control {
     display: inline-block;
     width: auto;
     vertical-align: middle;
   }
-  .form-inline .form-control-plaintext {
+  .inline .control-plaintext {
     display: inline-block;
   }
-  .form-inline .input-group,
-.form-inline .custom-select {
+  .inline .input-group,
+.inline .custom-select {
     width: auto;
   }
-  .form-inline .form-check {
+  .inline .check {
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
     padding-left: 0;
   }
-  .form-inline .form-check-input {
+  .inline .check-input {
     position: relative;
     flex-shrink: 0;
     margin-top: 0;
     margin-right: 0.25rem;
     margin-left: 0;
   }
-  .form-inline .custom-control {
+  .inline .custom-control {
     align-items: center;
     justify-content: center;
   }
-  .form-inline .custom-control-label {
+  .inline .custom-control-label {
     margin-bottom: 0;
   }
 }
@@ -4497,7 +4497,7 @@ fieldset:disabled a.btn {
   margin-top: 0.5rem;
 }
 
-input[type=submit].btn-block,
+input[type=].btn-block,
 input[type=reset].btn-block,
 input[type=button].btn-block {
   width: 100%;
@@ -4875,8 +4875,8 @@ input[type=button].btn-block {
   align-items: stretch;
   width: 100%;
 }
-.input-group > .form-control,
-.input-group > .form-control-plaintext,
+.input-group > .control,
+.input-group > .control-plaintext,
 .input-group > .custom-select,
 .input-group > .custom-file {
   position: relative;
@@ -4885,21 +4885,21 @@ input[type=button].btn-block {
   min-width: 0;
   margin-bottom: 0;
 }
-.input-group > .form-control + .form-control,
-.input-group > .form-control + .custom-select,
-.input-group > .form-control + .custom-file,
-.input-group > .form-control-plaintext + .form-control,
-.input-group > .form-control-plaintext + .custom-select,
-.input-group > .form-control-plaintext + .custom-file,
-.input-group > .custom-select + .form-control,
+.input-group > .control + .control,
+.input-group > .control + .custom-select,
+.input-group > .control + .custom-file,
+.input-group > .control-plaintext + .control,
+.input-group > .control-plaintext + .custom-select,
+.input-group > .control-plaintext + .custom-file,
+.input-group > .custom-select + .control,
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
-.input-group > .custom-file + .form-control,
+.input-group > .custom-file + .control,
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .custom-file {
   margin-left: -1px;
 }
-.input-group > .form-control:focus,
+.input-group > .control:focus,
 .input-group > .custom-select:focus,
 .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
   z-index: 3;
@@ -4907,12 +4907,12 @@ input[type=button].btn-block {
 .input-group > .custom-file .custom-file-input:focus {
   z-index: 4;
 }
-.input-group > .form-control:not(:last-child),
+.input-group > .control:not(:last-child),
 .input-group > .custom-select:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.input-group > .form-control:not(:first-child),
+.input-group > .control:not(:first-child),
 .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -4982,12 +4982,12 @@ input[type=button].btn-block {
   margin-top: 0;
 }
 
-.input-group-lg > .form-control:not(textarea),
+.input-group-lg > .control:not(textarea),
 .input-group-lg > .custom-select {
   height: calc(1.5em + 1rem + 2px);
 }
 
-.input-group-lg > .form-control,
+.input-group-lg > .control,
 .input-group-lg > .custom-select,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
@@ -4999,12 +4999,12 @@ input[type=button].btn-block {
   border-radius: 0.3rem;
 }
 
-.input-group-sm > .form-control:not(textarea),
+.input-group-sm > .control:not(textarea),
 .input-group-sm > .custom-select {
   height: calc(1.5em + 0.5rem + 2px);
 }
 
-.input-group-sm > .form-control,
+.input-group-sm > .control,
 .input-group-sm > .custom-select,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
@@ -5555,7 +5555,7 @@ a:hover
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   line-height: inherit;
   white-space: nowrap;
  color: #dddddd;
@@ -8946,13 +8946,14 @@ button.bg-dark:focus {
   position: sticky !important;
 }
 
-.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
+.fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav,.fixed-side {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
 }
+
 
 .fixed-bottom {
   position: fixed;
@@ -11614,6 +11615,7 @@ body {
   transition: transform 0.15s ease-in-out;
   z-index: 1038;
   transform: translateX(-225px);
+  
 }
 #layoutSidenav #layoutSidenav_content {
   position: relative;
@@ -11667,8 +11669,9 @@ body {
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
   width: 225px;
-  height: 100vh;
+  height: 100%;
   z-index: 1038;
+ 
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
   padding-top: 56px;
@@ -12007,7 +12010,8 @@ body {
 }
 
 #fixe {
-  position        : fixed;
+  position: fixed;
+  height: 100%;
 
 }
 .cc {
@@ -12018,6 +12022,65 @@ body {
   text-decoration-color: #dddddd;
   border-radius: 10px;
   background-color:#dddddd;
+  
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+# Sign In
+--------------------------------------------------------------*/
+.div1 {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to right, #b92b27, #1565c0);
+}
+.box {
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 90%;
+  left: 58%;
+  background: #f7f4f4;
+  text-align: center;
+  transition: 0.25s;
+  margin-top: 132px;
+  border-radius: 20px;
+  
+  
+}
+
+.box input[type="text"],
+.box input[type="email"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #284132;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box h1 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.box input[type="text"]:focus,
+.box input[type="email"]:focus,
+.box input[type="password"]:focus {
+  width: 300px;
+  border-color: #284132;
 }
 .adminpic{
   width: 150px;
@@ -12031,5 +12094,285 @@ body {
 }
 .posAdminIcon{
   margin-left: 1050px;
+
+.box button[type=""] {
+  border: 0;
+  background: black;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #284132;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box input[type=""]:hover {
+  background: #284132;
+}
+
+.forgot {
+  text-decoration: underline;
+}
+
+
+.div2 {
+  background: aliceblue;
+}
+
+
+/*--------------------------------------------------------------
+# update profile
+--------------------------------------------------------------*/
+.profile{
+  width: 100%;
+}
+
+#msform fieldset .profile-data{
+  margin: 0 auto;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  position: relative;
+}
+#msform {
+  text-align: center;
+  position: relative;
+  padding-top: 5%;
+  width:90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+
+
+
+/*inputs*/
+#msform input, #msform textarea ,#msform select{
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+}
+
+#msform input:focus, #msform textarea:focus ,#msform select{
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #442132;
+  outline-width: 0;
+  transition: All 0.5s ease-in;
+  -webkit-transition: All 0.5s ease-in;
+  -moz-transition: All 0.5s ease-in;
+  -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+  width: 30%;
+  background-color: #9e9aca;
+  /* font-weight: bold; */
+  color: white;
+  border: 0 none;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #5f768f;
+}
+
+#msform .action-button-next {
+  width: 30%;
+  background: #C5C5F1;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button-next:hover, #msform .action-button-next:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
+
+#msform .action-button-quiz {
+  width: 40%;
+  background: rgb(30, 22, 49);
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+#msform .update-btn {
+  background: rgb(44, 41, 53);
+  color: white;
+  border: 0 none;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+#msform .chapter-box{
+  border-style: outset;
+  border-color: #9e9aca;
+  padding: 5%;
+  margin-bottom: 2%;
+
+}
+
+/*headings*/
+.fs-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+
+.fs-subtitle {
+  font-weight: bold;
+  font-size: 8px;
+  color: #666;
+  margin-bottom: 20px;
+  font-family: montserrat;
+
+}
+.error{
+  color:red;
+  font-family: montserrat;
+  font-size: 13px;
+  float: left;
+
+}
+.quiz-box{
+  border-style: outset;
+  border-color: #222130;
+  padding: 5%;
+  margin-bottom: 2%;
+
+}
+
+
+/* file upload */
+.pdf-container{
+  width: 100%;
+  height: 800px;
+  background-color: #e4e4e4;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-msg{
+  width: 100%;
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* course view ****/
+
+#crsBox {
+  text-align: center;
+  position: relative;
+  padding-top: 2%;
+  width:100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: Arial;
+  padding: 10px;
+
+}
+
+#crsBox fieldset {
+  background: rgb(255, 255, 255);
+  border: 0 none;
+  border-radius: 0px;
+  /* box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4); */
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10%;
+
+  position: relative;
+}
+
+.crs-header {
+  padding: 10px;
+  text-align: center;
+  background: white;
+  /* box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4); */
+margin-bottom: 1%;
+}
+
+.crs-header h1 {
+  font-size: 30px;
+}
+
+
+
+
+/* PDF frame */
+.frame{
+
+    background: rgb(255, 255, 255);
+    border: none;        
+   
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    padding-bottom: 1%;
+
+
+
+}
+.frameBox{
+  width: 100%;
+  position:relative;
+  text-align: center;
+  background: white;
+margin-bottom: 5%;
+
+}
+
+
+.courseInfo {
+  font-weight: bold;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 20px;
+  font-family: montserrat;
 
 }
