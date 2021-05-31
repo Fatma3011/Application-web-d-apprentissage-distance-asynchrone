@@ -1436,14 +1436,16 @@ section {
   width: 500px;
   padding: 40px;
   position: absolute;
-  top: 90%;
+  /*top: 25%; */
   left: 58%;
-  background: #f7f4f4;
+  background: #ffffff;
   text-align: center;
   transition: 0.25s;
-  margin-top: 132px;
-  border-radius: 20px;
-  
+  margin-top: 85px;
+  margin-left:50px;
+
+  /* border-radius: 20px; */
+  /* box-shadow:  0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; */
   
 }
 
@@ -1517,7 +1519,7 @@ ul.social-network li {
 }
 
 .social-network a.icoTwitter:hover {
-  background-color: #33ccff;
+  background-color: #3b5998;
 }
 
 .social-network a.icoGoogle:hover {
@@ -2126,3 +2128,119 @@ margin-top: 10px;
 margin-bottom: 10px;
 }
 .nextChapter{color:#dddddd}
+.logoo{
+  max-width:100px;
+  height: auto;
+}
+
+.bgsignin{
+  /* The image used */
+  
+
+  /* Full height */
+  min-height: 100%;
+ width:100%;
+ background-attachment: fixed;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signin{
+padding-top: 0;
+float:left;
+
+
+
+}
+
+.bg{
+  /* The image used */
+  min-height: 100%;
+  min-width: 1024px;
+	  width: 100%;
+  height: auto;
+	background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+
+  /* Full height */
+  height: 100%;
+
+}
+
+
+
+
+/* @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+
+ .mt-100 {
+     margin-top: 100px
+ }
+
+ .container {
+     margin-top: 200px
+ }
+
+ .card {
+     position: relative;
+     display: flex;
+     width: 450px;
+     flex-direction: column;
+     min-width: 0;
+     word-wrap: break-word;
+     background-color: #fff;
+     background-clip: border-box;
+     border: 1px solid #d2d2dc;
+     border-radius: 4px;
+     -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+     -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+     box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+ }
+
+ .card .card-body {
+     padding: 1rem 1rem
+ }
+
+ .card-body {
+     flex: 1 1 auto;
+     padding: 1.25rem
+ }
+
+ p {
+     font-size: 14px
+ }
+
+ h4 {
+     margin-top: 18px
+ }
+
+ .cross {
+     padding: 10px;
+    
+     cursor: pointer
+ }
+
+ .continue:focus {
+     outline: none
+ }
+
+ .continue {
+     border-radius: 5px;
+     text-transform: capitalize;
+     font-size: 13px;
+     padding: 8px 19px;
+     cursor: pointer;
+     color: #fff;
+     
+ } */
+
+ 

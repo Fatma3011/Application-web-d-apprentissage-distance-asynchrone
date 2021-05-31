@@ -5,6 +5,7 @@ import axios from 'axios'
 import * as Yup from 'yup'
 import {useHistory} from 'react-router-dom'
 import {register} from "../../actions/Auth.service";
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -20,7 +21,22 @@ function Signup () {
     .required('Required'),
     email: Yup.string()
       .email('Invalid email format')
-      .required('Required'),
+      .required('Required')
+      .test("", "Invalid email format", function (value) {
+        let mail=this.parent.email;
+        if(mail!=null){
+            var verify= mail.split("@");
+            if (verify.length===2){
+                if(verify[1]==="ensi-uma.tn"){
+                    return true
+                }
+                else return false
+            }
+            else return false
+        }
+        
+    }
+      ),
       password:Yup.string().required('Required')
       .min(6),
 password2: Yup.mixed().test('match', 'Passwords do not match', function (value) {
@@ -53,7 +69,7 @@ return value === this.parent.password
        initialValues,onSubmit,validationSchema} )
       
   return (
-    <div className="container">
+    <div className="signin">
       <div className="row">
         <div className="col-md-6">
           <div className="card">
@@ -85,6 +101,12 @@ return value === this.parent.password
               <button type="submit" className="">
                 Sign up
               </button>
+              <div className='error'>  <NavLink 
+                className="nav-link"
+                to="/home/signin"
+                activeStyle={{ color: "red" }}
+              >
+              Sign In </NavLink> </div>
             
             </form>
           </div>

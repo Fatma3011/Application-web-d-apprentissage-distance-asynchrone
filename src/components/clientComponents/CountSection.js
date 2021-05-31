@@ -10,16 +10,16 @@ function CountSection() {
   <div className="container">
     <div className="row counters">
       <div className="col-lg-4 col-6 text-center">
-      <CountUp start={0} end={1500} />
+      <CountUp start={0} end={450} />
         <p>Students</p>
       </div>
       <div className="col-lg-4 col-6 text-center">
-      <CountUp start={0} end={525} />
+      <CountUp start={0} end={112} />
         <p>Teachers</p>
       </div>
       
       <div className="col-lg-4 col-6 text-center">
-      <CountUp start={0} end={6000} />
+      <CountUp start={0} end={756} />
         <p>Visitor/day</p>
       </div>
     </div>

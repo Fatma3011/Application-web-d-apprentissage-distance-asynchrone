@@ -104,3 +104,22 @@ export async function  ModifyCourseStudent(attributs,idStudent) {
     throw (error.response || error.message)
   }
 }
+export async function updateScore(sco,scoree,idStudent,idCourse) {
+  console.log(" add service")
+
+  try {
+    const response = await request({ 
+      method: 'POST',
+      data: sco,
+      url: `/app/updateScore/${idStudent}/${idCourse}/${scoree}/${sco}`,
+      headers: { Authorization: "Bearer " + token }
+
+    })
+    console.log(" add retour service")
+    console.log(response)
+
+    return response
+  } catch (error) {
+    throw (error.response || error.message)
+  }
+}

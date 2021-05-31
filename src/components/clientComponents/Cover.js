@@ -5,8 +5,10 @@ function Cover() {
         <>
              <section id="hero" className="d-flex align-items-center">
         <div className="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Your New Online Presence with Bethany</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <h1>
+It’s time to start
+investing in yourself</h1>
+      <h2>Because learning  might be the easiest way to change your career.</h2>
       <div className="row"> 
       <div className="col-lg-5"></div>
       <div className="col-lg-2">

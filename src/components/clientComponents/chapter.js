@@ -17,7 +17,7 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Divider from '@material-ui/core/Divider';
-import { getNomchapter,ModifyCourseStudent,getCourse} from '../../actions/student.service';
+import { getNomchapter,ModifyCourseStudent,getCourse,updateScore} from '../../actions/student.service';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -156,28 +156,13 @@ function ViewCourse() {
   
   
   
-  {/* { Chapterstate.chapter?(
-                    
-                                                        return(
-                                                        
-                                                             <Tab 
-                                                             wrapped label={item.chapterTitle} 
-                                                              value={index} />
-                                                                       
-                                                        )
-                                                          
-                                                        
-                                                                          
-                                         ):''                 
-   
-                                        }
-            */}
+ 
         
           </Tabs>
         </AppBar>
          { Chapterstate.chapter?(
        
-                   <MainPanel value={value} chapter={Chapterstate.chapter} chapterNumber={Chapterstate.chapterNumber} score={Chapterstate.score} numberOfChapters={Chapterstate.numberOfChapters}/>                  
+                   <MainPanel value={value} chapter={Chapterstate.chapter} chapterNumber={Chapterstate.chapterNumber} score1={Chapterstate.score}  numberOfChapters={Chapterstate.numberOfChapters}/>                  
     
                    ):''                 
                   } 
@@ -205,13 +190,12 @@ function ViewCourse() {
   
   function MainPanel(props) {
     let {idCourse,idStudent}= useParams()
-
-    const {  chapter,chapterNumber,score,numberOfChapters} = props;
+    const {chapter,chapterNumber,score1,numberOfChapters} = props;
   const [pdfFile,setPdfFile]=useState('');
   const [value, setValue] = React.useState(0);
   const [finstate, setFinstate] = useState("false");
  // const [long, setLong] = useState();
-  
+ // var totalScore=parseInt(score1);
     useEffect(() => {   
       getFile({
         
@@ -233,6 +217,12 @@ function ViewCourse() {
   
       console.log(newValue);
     };
+   
+
+    // function saveScore(score){
+    //   totalScore+=score;
+    //   console.log(totalScore)
+    // }
     const handleClick=()=> {
       console.log("arijjjjjjjj clicked");
       console.log(chapterNumber);
@@ -254,7 +244,7 @@ function ViewCourse() {
           id: response.data._id,
           chapter: response.data.chapters[chapterNumber],
           chapterNumber : chapterNumber+1,
-          score:score,
+          score:score1,
           description: response.data.description,
           createdBy : response.data.createdBy,
         }
@@ -263,9 +253,7 @@ function ViewCourse() {
         ModifyCourseStudent(attributs,idStudent)
         .then(()=>{console.log("debut add")})
         .catch(()=>{console.log("errr add")})
-       // if((chapterNumber+1)===response.data.chapters.length){setFinstate("true");console.log("fin");console.log(finstate);}
-        //else {setFinstate("false");console.log("mch fin")}
-       // console.log(finstate)
+
     })
   .catch(()=>{console.log("khraj")})};
     return (
@@ -292,9 +280,9 @@ function ViewCourse() {
         pdfFile?(<iframe id="viewer"  className="frame" src={URL.createObjectURL(pdfFile)}/> ):''
   )
   
-  :(<><Quiz questions={chapter.quiz} total={chapter.quiz.length}/>
+  :(<><Quiz questions={chapter.quiz} total={chapter.quiz.length} score={score1}/>
 
-{(chapterNumber!==numberOfChapters)?(<a href="#" className="btn btn-style-1 " onClick={handleClick}>  <NavLink
+{(chapterNumber!==numberOfChapters)?(<><a href="#" className="btn btn-style-1 " onClick={handleClick}>  <NavLink
                       className="nextChapter"
                       to="/student/course/:idStudent/:idCourse"
                       
@@ -302,15 +290,47 @@ function ViewCourse() {
                         fontWeight: "bold",
                         color: "white",
                       }}
-                    >Next chapter</NavLink></a>  ):(<a href="#" className="btn btn-style-1 ">  <NavLink
-                    className="nextChapter"
-                    to="/student/course/:idStudent/:idCourse"
+                    >Next chapter</NavLink></a>  
+                   </>
                     
-                    activeStyle={{
-                      fontWeight: "bold",
-                      color: "white",
-                    }}
-                  >View Score</NavLink></a>)} </>
+                    
+                    
+                    ):(<>
+                  
+<div>
+  <div className="container d-flex justify-content-center">
+    <div className="row">
+      <div className="col-md-6"> <button type="button" className="btn  " data-toggle="modal" data-target="#myModal"><a href="#" className="btn btn-style-1 ">  
+                  View Score</a></button> </div>
+    </div>
+  </div>
+  <div className="modal fade" id="myModal" role="dialog">
+    <div className="modal-dialog">
+      <div className="card">
+        <div className="text-right cross"> <i className="fa fa-times" /> </div>
+        <div className="card-body text-center"> <img src="https://img.icons8.com/bubbles/200/000000/trophy.png" />
+          <h4>CONGRATULATIONS!</h4>
+          <p>You have successfully completed this course!</p>  <p>your total score is:<b>{score1}</b></p>
+          <a href="/home" className="btn btn-style-1 " > 
+          <NavLink
+                      className="nextChapter"
+                      to="/student/home"
+                      
+                      activeStyle={{
+                        fontWeight: "bold",
+                        color: "white",
+                      }}
+                    >Next chapter</NavLink></a>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                  
+                  
+                  
+                  </>)} </>
                     )
   
   
@@ -323,74 +343,122 @@ function ViewCourse() {
   
   
   function Quiz(props){
-  const {questions ,total}=props;
-  let list1=[];
-  let list=[];
-  return  questions.map((ques, i)=> (
-  
-    <div key={i}>
-                 
-                          <div style={{marginBottom: "9px"}}>
-       
-     <Accordion   expanded={true}>
-  
-       <AccordionSummary   aria-controls="panel1c-content"  id="panel1c-header" >
-       <div >
-       <Typography gutterBottom variant="h5" component="h2">
-           Question {i+1} / {total} </Typography>   
-       </div>
-      
-       </AccordionSummary>
-   
-     
-     <AccordionDetails >
-    
-     <div style={{display: 'flex',flexDirection:'column', alignItems:'flex-start', marginLeft: '15px', marginTop:'-15px'}}>
-         <div style={{display: 'flex',flexDirection:'row', alignItems:'flex-start', marginLeft:'-13px'}}>
-         
-         <Typography component="h3">
-         {ques.questionText}
-            </Typography>  
-              
-        </div>  
-        <br/>
-           
-  
-           <div style={{width: '100%'}}>
-           {ques.options.map((op, j)=>(
-            <div key={j} style={{display:'flex', flexDirection:'row', marginLeft:'-13px'}}>
-  
-                <Radio 
-                               value={ques.options[j].value}
+    let {idCourse,idStudent}= useParams()
+ const [clicked,setClicked]=useState(false)
+  const {questions ,total,score}=props;
+  const list=[]
+  const listAK=[]
+  const listP=[]
+useEffect(()=>{},[clicked])
+  const handleClick=()=> {
+    var sco=0;
+    for(let i=0;i<listP.length;i++){sco+=listP[i]}
+    console.log(sco)
+    var scoree = parseInt(score)
+    setClicked(!clicked)
+    updateScore(sco,scoree,idStudent,idCourse)
+  .then(()=>{console.log("debut modification")})
+  .catch(()=>{console.log("errr modif")})
+  window.location.reload();
+  }
 
-               checked={ques.answerKey ===ques.options[j].value}
-                 
-               />  
+
+
+
+  // const [score,setScore]=useState([])
+
+  // for (let i=0;i<questions.length;i++){
+  //   list.push(questions.answerKey)
+  // }
+  console.log(questions)
+
+  return (<>
+    <div>
+
+{ questions.map((ques, i)=> (
+  
+  <div key={i}>
+               
+                        <div style={{marginBottom: "9px"}}>
      
-                   <span style={{padding:'8px'}} >
-                {ques.options[j].optionText} 
-            </span>
-  
-            </div>
-            list.push()       
-            list1.push()   
-           ))}  
-           </div>  
-           
-  
-          
-         </div>
-         <Divider />
-  
-     </AccordionDetails>
-     
-  </Accordion>
+   <Accordion   expanded={true}>
+
+     <AccordionSummary   aria-controls="panel1c-content"  id="panel1c-header" >
+     <div >
+     <Typography gutterBottom variant="h5" component="h2">
+         Question {i+1} / {total} </Typography>   
+     </div>
     
-     </div>  
-  </div>
-         
+     </AccordionSummary>
+ 
+   
+   <AccordionDetails >
   
-  )
-  )
+   <div style={{display: 'flex',flexDirection:'column', alignItems:'flex-start', marginLeft: '15px', marginTop:'-15px'}}>
+       <div style={{display: 'flex',flexDirection:'row', alignItems:'flex-start', marginLeft:'-13px'}}>
+       
+       <Typography component="h3">
+       {ques.questionText}
+          </Typography>  
+            
+      </div>  
+      <br/>
+         
+     
+         <div style={{width: '100%'}}>
+         {ques.options.map((op, j)=>(
+           
+          <div key={j} style={{display:'flex', flexDirection:'row', marginLeft:'-13px'}}>
+
+              <Radio         
+                             value={ques.options[j].value}
+                            onChange={(e)=>{
+                             
+                                  
+                list[i]=e.target.value;
+                listAK[i]=ques.answerKey;
+                if (list[i]===listAK[i]){listP[i]=parseInt(ques.points);
+                } else{listP[i]=0;}
+
+                              console.log(list)
+                              console.log(listAK)
+                              console.log(listP)
+
+
+                            }
+
+                              }
+                            //  checked={list[i]===ques.options[j].value}
+
+             />  
+                 <span style={{padding:'8px'}} >
+              {ques.options[j].optionText} 
+          </span>
+  
+          </div>
+              
+         ))}  
+         </div>  
+         
+
+        
+       </div>
+       <Divider />
+
+   </AccordionDetails>
+   
+</Accordion>
+
+   </div>  
+</div>
+       
+
+)
+)
+                            }                         
+    </div>
+    <a href="#" className="btn btn-style-1 " onClick={handleClick}> Submit</a></>
+  
+  ) 
   
   }

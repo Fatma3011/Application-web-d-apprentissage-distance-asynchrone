@@ -54,7 +54,7 @@ function Signin (props) {
        initialValues,onSubmit,validationSchema})
       
   return (
-    <div className="container">
+    <div className=" signin" >
       <div className="row">
         <div className="col-md-6">
           <div className="card">
@@ -64,7 +64,7 @@ function Signin (props) {
               <div className='error'> {props.auth?  "You must Sign in first":""}</div>
            
                 {" "}
-                Please enter your login and password!
+                {/* Please enter your login and password! */}
               </p>
               <input type="email" onChange={formik.handleChange}  placeholder="Your email address"  name="email" value={formik.values.email}/>
               {formik.touched.email && formik.errors.email ? (
@@ -83,14 +83,14 @@ function Signin (props) {
           Go to   
           <NavLink 
                 className="nav-link"
-                to="/signup"
+                to="/home/signup"
                 activeStyle={{ color: "red" }}
               >
                  Sign Up </NavLink></div>
         ) : null}
              <div className='error'>  <NavLink 
                 className="nav-link"
-                to="/signup"
+                to="/home/signup"
                 activeStyle={{ color: "red" }}
               >
               Sign Up </NavLink> </div>

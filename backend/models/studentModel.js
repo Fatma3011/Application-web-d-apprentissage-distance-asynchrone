@@ -1,5 +1,6 @@
 const mongoose=require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator');
+const dataSchema =require('../models/dataModel')
 
 const bcrypt =require('bcryptjs');
 const { string } = require('yup/lib/locale');
@@ -28,6 +29,8 @@ date: {
     id:String,
     title:String,
     topic:String, 
+    level:String,
+
     language:String,
     estimatedTime:String,
     image :{name:String,
@@ -43,6 +46,7 @@ coursesNotFinished: [{
     chapterNumber:Number,
     title:String,
     numberOfChapters:Number,
+    level:String,
 
     topic:String,
     estimatedTime:String,

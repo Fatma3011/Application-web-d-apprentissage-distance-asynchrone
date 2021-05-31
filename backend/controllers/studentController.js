@@ -127,5 +127,28 @@ const ModifyCourseStudent = async(req,res)=>{
   .catch((error)=>{console.log("err")})
 
 };
+const updateScore = async(req,res)=>{
+  console.log("updating score")
 
-module.exports={getInfo,getMyCourses,updateProfile,getCourse,getNomchapter,ModifyCourseStudent};
+  idStudent=req.params.idStudent;
+
+  console.log('aaaaaaaaaaaa')
+  var k =parseInt(req.params.scoree)+parseInt(req.params.sco);
+  var ch=k.toString();
+  console.log(req.params.scoree)
+  console.log(req.params.sco)
+  console.log(ch)
+ SignUpTemplateCopy.update(
+    
+        { "_id": idStudent},
+  
+        {$set: { 'coursesNotFinished.$[i].score':k}},
+        {arrayFilters: [{'i._id':req.params.idCourse}]}
+    
+)
+  .then((res)=>{console.log("cours ajouté avec succes");console.log(res)})
+  .catch((error)=>{console.log("err")})
+
+};
+
+module.exports={getInfo,getMyCourses,updateProfile,getCourse,getNomchapter,ModifyCourseStudent,updateScore};

@@ -14,6 +14,23 @@ export async function getAllCourses() {
       throw (error.response || error.message)
     }
   }
+
+  export async function getCoursesByLevel(level) {
+    try {
+      const response = await request({ 
+        method: 'GET',
+        url:`/app/home/course/${level}` ,
+      })
+     
+      console.log(response)
+  
+      return response
+    } catch (error) {
+      throw (error.response || error.message)
+    }
+  }
+
+
 //getFile
 export async function getFile(imagePath){
   try {

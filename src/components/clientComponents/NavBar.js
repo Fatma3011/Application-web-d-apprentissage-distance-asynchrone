@@ -44,8 +44,8 @@ function NavBar(props) {
           <div className="header-container d-flex align-items-center justify-content-between">
             <div className="logo">
               <h1 className="text-light">
-                <a href="index.html">
-                  <span>E-learning</span>
+                <a href="/home">
+                  <span>ENSI-learning</span>
                 </a>
               </h1>
             </div>

@@ -11,7 +11,7 @@ function NavBar() {
             <div className="logo">
               <h1 className="text-light">
                 <a href="index.html">
-                  <span>E-learning</span>
+                  <span>ENSI-learning</span>
                 </a>
               </h1>
             </div>

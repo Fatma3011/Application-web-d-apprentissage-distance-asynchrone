@@ -13,6 +13,24 @@ const getAllCourses = async(req, res)=>{
         res.send(error)
      )
 }
+
+
+
+const getCoursesByLevel = async(req, res)=>{
+  var level = req.params.level;
+   courseSchema.find().where('level').in(level).exec((err, records) => {    
+
+      console.log(records);
+
+      res.status(200).json(records);
+  });
+  }
+  
+        
+
+             
+ 
+
 const getFile=async (req,res)=>{  
   console.log("getfile")
 
@@ -27,4 +45,4 @@ const getFile=async (req,res)=>{
 //    res.send(img);
 
 }
-module.exports={getAllCourses,getFile}
+module.exports={getAllCourses,getFile,getCoursesByLevel}

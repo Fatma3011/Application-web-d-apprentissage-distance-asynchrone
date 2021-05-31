@@ -74,7 +74,6 @@ return (
       <div className="card">
       {
                           firstimageState?(<img alt="100%x280" className="img-fluid" id="image" src={URL.createObjectURL(firstimageState)} width="100%" heigth="100%"/>):''
-
                 }  
              
         <div className="card-body">
@@ -106,7 +105,7 @@ return (
            <p className="card-text description2"><b className="text"> Estmated Time:</b><b>{props.second.estimatedTime}Hours</b><br/>
            <b className="text"> language:</b>{props.second.language}</p>
            <a href="#" className="btn btn-style-1 ">start</a>
-
+{console.log("aaaaaaaa")}
         </div>
       </div>
     </div>:null}

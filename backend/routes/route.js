@@ -1,8 +1,8 @@
 const express=require('express');
 const router =express.Router();
 const {signin,signup} =require('../controllers/userController.js')
-const {getInfo,updateProfile,getMyCourses,getCourse,getNomchapter,ModifyCourseStudent} =require('../controllers/studentController.js')
-const {getAllCourses,getFile} =require('../controllers/courseController.js')
+const {getInfo,updateProfile,getMyCourses,getCourse,getNomchapter,ModifyCourseStudent,updateScore} =require('../controllers/studentController.js')
+const {getAllCourses,getCoursesByLevel,getFile} =require('../controllers/courseController.js')
 
 const {auth} =require('../middleware/auth')
 
@@ -17,9 +17,14 @@ router.post('/student/myprofile/:id',auth,updateProfile)
 router.get('/student/mycourses/:id',auth,getMyCourses)
 router.get('/student/course/:idStudent/:idCourse',getNomchapter)
 router.get('/student/course/:idCourse',getCourse)
+
 router.post('/ModifyCourseStudent/:idStudent',auth,ModifyCourseStudent)
+router.post('/updateScore/:idStudent/:idCourse/:scoree/:sco',auth,updateScore)
+
 
 //homepage
 router.get('/home/courses',getAllCourses)
+router.get('/home/course/:level',getCoursesByLevel)
+
 router.post('/home/getfile',getFile)
 module.exports=router
